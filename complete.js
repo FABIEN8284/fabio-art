@@ -102,7 +102,7 @@
       return 255;
     }
     all('main h2,main p,main .caption,main .view,main .text-link,main .scroll').forEach(element => {
-      if (element.closest('.hero-copy,.universe-portal,.approach-transition')) return;
+      if (element.closest('.hero-copy,.universe-portal,.approach-transition,.artist-opening,.essay-chapter:nth-child(odd),.universe-hero,.artist-portrait,.contact-section')) return;
       const rect = element.getBoundingClientRect();
       const low = luminance(gray((rect.top + scrollY) / height));
       const high = luminance(gray((rect.bottom + scrollY) / height));

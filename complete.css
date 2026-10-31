@@ -108,3 +108,22 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .complete picture.focus-15::after,.complete picture.focus-16::after{content:'';position:absolute;inset:0;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none}
 .complete picture.focus-15::after{background-image:url('assets/ia-15.jpg');mask-image:radial-gradient(ellipse 34% 42% at 43% 55%,black 20%,transparent 100%)}
 .complete picture.focus-16::after{background-image:url('assets/ia-16.jpg');mask-image:radial-gradient(ellipse 23% 28% at 55% 48%,black 15%,transparent 100%)}
+
+/* TEST V2: final layout adjustments, original photographs preserved. */
+.complete.release-v12 .atelier-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:65px 3vw}
+.complete.release-v12 .atelier-grid>.work{grid-column:span 2}
+.complete.release-v12 .atelier-grid>.work:nth-last-child(-n+2){grid-column:span 3;margin-top:0}
+.artist-profile{position:relative;isolation:isolate;overflow:hidden;grid-template-columns:1fr 1fr;gap:0;min-height:780px;padding:90px 8vw;background:#101516;color:#fff}
+.artist-profile-background{position:absolute;inset:-45px;width:calc(100% + 90px);height:calc(100% + 90px);max-width:none;object-fit:cover;filter:blur(24px) brightness(.36);z-index:-1;pointer-events:none}
+.artist-profile-heading{position:relative;z-index:2;width:119%;align-self:center;pointer-events:none}
+.artist-profile h2{font-size:clamp(2.7rem,4.6vw,5rem);line-height:1.12;text-shadow:0 2px 22px #000a}
+.artist-profile-photo{position:relative;z-index:1;width:100%;max-width:520px;justify-self:end;box-shadow:0 25px 70px #0005}
+.artist-profile-photo img{width:100%;height:auto;filter:none}
+@media(max-width:600px){
+ .complete.release-v12 .atelier-grid{grid-template-columns:1fr;gap:45px}
+ .complete.release-v12 .atelier-grid>.work,.complete.release-v12 .atelier-grid>.work:nth-last-child(-n+2){grid-column:1}
+ .artist-profile{grid-template-columns:1fr;min-height:0;padding:65px 6vw}
+ .artist-profile>.artist-profile-heading:first-child,.artist-profile .artist-profile-heading{order:0;width:100%;margin:0 0 -24px;align-self:auto}
+ .artist-profile h2{font-size:clamp(2.2rem,8.5vw,3.2rem);line-height:1.12}
+ .artist-profile-photo{order:1;width:90%;justify-self:end}
+}
