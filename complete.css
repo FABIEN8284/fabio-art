@@ -111,7 +111,7 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 
 /* TEST V2: final layout adjustments, original photographs preserved. */
 .complete.release-v12 .atelier-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:65px 3vw}
-.complete.release-v12 .atelier-grid>.work{grid-column:span 2}
+.complete.release-v12 .atelier-grid>.work{grid-column:span 2;grid-row:auto}
 .complete.release-v12 .atelier-grid>.work:nth-last-child(-n+2){grid-column:span 3;margin-top:0}
 .artist-profile{position:relative;isolation:isolate;overflow:hidden;grid-template-columns:1fr 1fr;gap:0;min-height:780px;padding:90px 8vw;background:#101516;color:#fff}
 .artist-profile-background{position:absolute;inset:-45px;width:calc(100% + 90px);height:calc(100% + 90px);max-width:none;object-fit:cover;filter:blur(24px) brightness(.36);z-index:-1;pointer-events:none}
