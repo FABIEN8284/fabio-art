@@ -101,3 +101,10 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .complete .atelier-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .complete .atelier-grid .work:nth-last-child(-n+2){grid-row:auto;margin-top:0}
 @media(max-width:600px){.complete .atelier-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.complete .atelier-grid .work:first-child{grid-column:1/-1;grid-row:auto}}
+
+/* TEST: flou progressif des photographies d'atelier, sans modifier les originaux */
+.complete picture.focus-15,.complete picture.focus-16{position:relative;overflow:hidden;isolation:isolate}
+.complete picture.focus-15 img,.complete picture.focus-16 img{filter:blur(12px);transform:scale(1.035)}
+.complete picture.focus-15::after,.complete picture.focus-16::after{content:'';position:absolute;inset:0;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none}
+.complete picture.focus-15::after{background-image:url('assets/ia-15.jpg');mask-image:radial-gradient(ellipse 34% 42% at 43% 55%,black 20%,transparent 100%)}
+.complete picture.focus-16::after{background-image:url('assets/ia-16.jpg');mask-image:radial-gradient(ellipse 23% 28% at 55% 48%,black 15%,transparent 100%)}
