@@ -233,7 +233,7 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-expand-demo .fabio-expand-copy{position:relative;z-index:2;padding:26px 5vw 0;color:#29251f}
 .fabio-expand-demo .fabio-expand-copy h2{font-size:clamp(2rem,4vw,4rem)}
 .fabio-expand-demo .fabio-expand-frame{position:sticky!important;top:88px;display:block!important;width:100%!important;height:calc(100svh - 88px)!important;margin:0!important;overflow:hidden!important;background:radial-gradient(ellipse,#f5f2eb,#ddd8cd)!important;transform:none!important}
-.fabio-expand-demo .fabio-expand-frame img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:scale(calc(1 + var(--matter-zoom,0)*.95))!important;transform-origin:50% 49%;filter:drop-shadow(0 12px 20px #3a302526)}
+.fabio-expand-demo .fabio-expand-frame img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:scale(calc(1.65 + var(--matter-zoom,0)*.95))!important;transform-origin:50% 49%;filter:drop-shadow(0 12px 20px #3a302526)}
 @media(prefers-reduced-motion:reduce){.fabio-expand-demo .fabio-expand-frame img{transform:none!important}}
 
 /* Peter Parker : meme langage editorial que Les oeuvres en suspension */
