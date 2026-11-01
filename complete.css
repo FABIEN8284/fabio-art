@@ -468,3 +468,45 @@ overflow:hidden;position:relative;
 #chapitre-3.fabio-vivant-visual .fabio-vivant-art img{width:100%!important}
 #chapitre-3.fabio-vivant-visual .fabio-vivant-copy h2{font-size:clamp(44px,10vw,65px)!important}
 }
+
+
+/* TEST — chapitre 3 : fond continu, sans panneau photographique distinct.
+   La transition masque uniquement le bord du visuel ; l'oeuvre reste intacte. */
+@media (min-width: 751px) {
+  #chapitre-3.fabio-vivant-visual {
+    display: block !important;
+    isolation: isolate;
+    min-height: calc(100svh - 95px) !important;
+    background: radial-gradient(ellipse at 75% 48%, #aaa7a5 0%, #a9a7a6 46%, #c8c8c8 100%) !important;
+  }
+  #chapitre-3.fabio-vivant-visual .fabio-vivant-copy {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 46% !important;
+    max-width: 640px !important;
+  }
+  #chapitre-3.fabio-vivant-visual .fabio-vivant-art {
+    position: absolute !important;
+    z-index: 1 !important;
+    inset: 0 0 0 auto !important;
+    width: 72% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    display: block !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 12%, #000 30%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 12%, #000 30%);
+  }
+  #chapitre-3.fabio-vivant-visual .fabio-vivant-art img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    filter: none !important;
+  }
+}
+@media (max-width: 750px) {
+  #chapitre-3.fabio-vivant-visual .fabio-vivant-art img {
+    filter: none !important;
+  }
+}
