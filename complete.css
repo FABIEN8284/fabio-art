@@ -718,3 +718,25 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 .release-v12 .artist-opening .artist-main-photo{
   mask-image:radial-gradient(ellipse at center,#000 55%,rgba(0,0,0,.96) 69%,transparent 91%);
 }
+
+
+/* TEST — Démarche artistique : composition épurée, tableau rouge et piano seuls.
+   Photos secondaires masquées ; source centrale et cadrage conservés. */
+.release-v12 .artist-opening{
+  background:#302d2c;
+}
+.release-v12 .artist-opening .artist-backgrounds{
+  display:none!important;
+}
+.release-v12 .artist-opening .artist-opening-images{
+  background:radial-gradient(ellipse at 50% 42%,#514947 0%,#302d2c 76%);
+}
+.release-v12 .artist-opening .artist-main-photo{
+  mask-image:radial-gradient(ellipse at 50% 50%,#000 64%,rgba(0,0,0,.95) 75%,transparent 98%);
+}
+@media(min-width:761px){
+  .release-v12 .artist-opening .artist-main-photo{
+    width:min(88%,1150px);
+    aspect-ratio:1.22;
+  }
+}
