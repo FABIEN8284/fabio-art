@@ -884,3 +884,18 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{max-width:560px!important;overflow:visible!important;align-self:center!important}
 #chapitre-5,#chapitre-6{min-height:0!important;padding-top:clamp(65px,7vw,105px)!important;padding-bottom:clamp(65px,7vw,105px)!important}
 @media(max-width:700px){#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{width:100%!important;max-width:100%!important}#chapitre-5 .fabio-explore__art img,#chapitre-6 .fabio-explore__art img{max-height:380px!important}}
+
+/* TEST — ouverture Démarche : œuvre sur piano conservée, présentation de galerie. */
+#demarche.artist-opening{background:linear-gradient(145deg,#c9c5c1 0%,#a5a09b 55%,#78736e 100%)!important;color:#211c19!important;min-height:0!important;padding:clamp(64px,7vw,105px) 6vw!important;overflow:hidden!important;text-align:center}
+#demarche .artist-opening-images{position:relative!important;max-width:1040px!important;margin:0 auto 30px!important;min-height:0!important;height:auto!important;display:block!important}
+#demarche .artist-backgrounds{opacity:.16!important;filter:blur(18px)!important;pointer-events:none!important}
+#demarche .artist-piano-stage{position:relative;isolation:isolate;max-width:700px;margin:0 auto}
+#demarche .artist-piano-stage:before{content:"";position:absolute;inset:7% 3% 13%;background:radial-gradient(ellipse,rgba(88,38,33,.3),transparent 68%);filter:blur(30px);z-index:-1;pointer-events:none}
+#demarche .artist-main-photo{position:relative!important;display:block!important;width:min(100%,480px)!important;margin:0 auto!important;mask-image:none!important;-webkit-mask-image:none!important;filter:drop-shadow(0 18px 22px rgba(38,25,22,.28))!important;overflow:hidden!important;border-radius:4px}
+#demarche .artist-main-photo picture{display:block!important}
+#demarche .artist-main-photo img{display:block!important;width:100%!important;height:auto!important;max-height:430px!important;object-fit:contain!important;clip-path:none!important;mask-image:linear-gradient(to bottom,#000 0%,#000 86%,transparent 100%)!important}
+#demarche .artist-piano-caption{display:block;margin:15px auto 0;font:italic clamp(18px,2vw,25px)/1.3 Georgia,serif;letter-spacing:.01em;color:#3d2925}
+#demarche .eyebrow,#demarche h1,#demarche .lede{color:#211c19!important}
+#demarche h1{margin:12px auto 16px!important}
+#demarche .lede{margin:0 auto!important}
+@media(max-width:700px){#demarche.artist-opening{padding:60px 5vw!important}#demarche .artist-main-photo{width:min(100%,360px)!important}#demarche .artist-main-photo img{max-height:350px!important}#demarche .artist-opening-images{margin-bottom:25px!important}}
