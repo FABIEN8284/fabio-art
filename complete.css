@@ -448,65 +448,20 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 }
 
 
-/* TEST — Formes du vivant : composition recreee a partir du visuel fourni */
-.release-v12 #chapitre-3.fabio-vivant-visual,
-#chapitre-3.fabio-vivant-visual{
-display:grid!important;grid-template-columns:minmax(0,44%) minmax(0,56%)!important;
-align-items:center!important;gap:0!important;min-height:calc(100svh - 95px)!important;
-padding:clamp(32px,5vw,76px) clamp(24px,4vw,72px)!important;
-background:radial-gradient(ellipse at 73% 47%,#bcb9b7 0%,#777473 42%,#b5b5b5 77%,#d5d5d5 100%)!important;
-overflow:hidden;position:relative;
-}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-copy{position:relative;z-index:2;max-width:640px}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-copy h2{font-size:clamp(46px,5vw,88px)!important;line-height:1.06!important;color:#151413!important}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-copy .lede{color:#161616!important;font-size:clamp(16px,1.2vw,21px)!important;line-height:1.75!important}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-copy .eyebrow{color:#151515!important}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-art{width:100%;height:auto;display:flex;align-items:center;justify-content:center;overflow:visible}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-art img{width:112%!important;max-width:none!important;height:auto!important;object-fit:contain!important;display:block!important;filter:drop-shadow(0 22px 25px rgba(0,0,0,.28))}
-@media(max-width:750px){
-#chapitre-3.fabio-vivant-visual{grid-template-columns:1fr!important;min-height:0!important;gap:24px!important;padding:58px 22px 40px!important}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-art img{width:100%!important}
-#chapitre-3.fabio-vivant-visual .fabio-vivant-copy h2{font-size:clamp(44px,10vw,65px)!important}
-}
-
-
-/* TEST — chapitre 3 : fond continu, sans panneau photographique distinct.
-   La transition masque uniquement le bord du visuel ; l'oeuvre reste intacte. */
-@media (min-width: 751px) {
-  #chapitre-3.fabio-vivant-visual {
-    display: block !important;
-    isolation: isolate;
-    min-height: calc(100svh - 95px) !important;
-    background: radial-gradient(ellipse at 75% 48%, #aaa7a5 0%, #a9a7a6 46%, #c8c8c8 100%) !important;
-  }
-  #chapitre-3.fabio-vivant-visual .fabio-vivant-copy {
-    position: relative !important;
-    z-index: 3 !important;
-    width: 46% !important;
-    max-width: 640px !important;
-  }
-  #chapitre-3.fabio-vivant-visual .fabio-vivant-art {
-    position: absolute !important;
-    z-index: 1 !important;
-    inset: 0 0 0 auto !important;
-    width: 72% !important;
-    height: 100% !important;
-    overflow: hidden !important;
-    display: block !important;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 12%, #000 30%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 12%, #000 30%);
-  }
-  #chapitre-3.fabio-vivant-visual .fabio-vivant-art img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    object-position: right center !important;
-    filter: none !important;
-  }
-}
-@media (max-width: 750px) {
-  #chapitre-3.fabio-vivant-visual .fabio-vivant-art img {
-    filter: none !important;
-  }
+/* Formes du vivant — adaptation scoped du bloc fourni par Claude. Photo originale inchangée. */
+#chapitre-3.fabio-explore{position:relative;overflow:hidden;container-type:inline-size;aspect-ratio:1230/582;min-height:0!important;padding:0!important;margin:0!important;display:block!important;background:linear-gradient(90deg,#bcbbba 0 34%,#a9a7a7 41%,#8e8b88 75%,#706e6c 100%)!important;color:#161616}
+#chapitre-3.fabio-explore::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.30) 0,rgba(0,0,0,0) 58%);-webkit-mask-image:linear-gradient(90deg,transparent 36%,#000 72%);mask-image:linear-gradient(90deg,transparent 36%,#000 72%)}
+#chapitre-3 .fabio-explore__text{position:absolute;left:2.9%;top:15.8%;width:40%;color:#161616;z-index:2;max-width:none!important;transform:none!important}
+#chapitre-3 .fabio-explore__eyebrow{font:700 .9cqw/1 Helvetica,Arial,sans-serif!important;letter-spacing:.14em!important;text-transform:uppercase;margin:0 0 2.4cqw .4cqw!important;color:#161616!important}
+#chapitre-3 .fabio-explore__text h2{font:400 5.5cqw/1 "Times New Roman",Times,serif!important;letter-spacing:-.025em!important;margin:0 0 3cqw .4cqw!important;color:#161616!important;max-width:none!important}
+#chapitre-3 .fabio-explore__lead{font:400 1.22cqw/1.73 Helvetica,Arial,sans-serif!important;color:#1d1d1d!important;margin:0!important;max-width:none!important}
+#chapitre-3 .fabio-explore__art{position:absolute;left:41.1%;top:6%;width:58.6%;margin:0!important;filter:drop-shadow(0 1.8cqw 1.6cqw rgba(0,0,0,.55));overflow:visible!important;transform:none!important}
+#chapitre-3 .fabio-explore__art img{display:block!important;width:100%!important;max-width:none!important;height:auto!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(31.77% 2.11%,73.96% 2.57%,98.12% 90.33%,98.33% 93.96%,97.29% 95.77%,2.92% 91.09%,2.08% 86.40%)}
+@media(max-width:760px){
+#chapitre-3.fabio-explore{aspect-ratio:auto!important;display:flex!important;flex-direction:column!important;padding:32px 20px 28px!important;background:linear-gradient(180deg,#bcbbba 0 45%,#7d7a78 100%)!important}
+#chapitre-3 .fabio-explore__text{position:static!important;width:auto!important}
+#chapitre-3 .fabio-explore__eyebrow{font-size:11px!important;margin:0 0 14px!important}
+#chapitre-3 .fabio-explore__text h2{font-size:44px!important;margin:0 0 18px!important}
+#chapitre-3 .fabio-explore__lead{font-size:16px!important;line-height:1.6!important}
+#chapitre-3 .fabio-explore__art{position:static!important;width:100%!important;margin-top:28px!important}
 }
