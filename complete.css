@@ -276,3 +276,13 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .release-v12 .fabio-parker-photos{height:clamp(400px,60vh,700px)!important}
 @media(max-width:750px){.release-v12 .fabio-expand-demo,.release-v12 .fabio-parker-demo{height:205svh!important}.release-v12 .fabio-expand-demo .fabio-expand-frame,.release-v12 .fabio-parker-sticky{top:75px!important;height:calc(100svh - 75px)!important}.release-v12 .fabio-expand-demo .fabio-expand-frame img{transform:scale(calc(.91 + var(--matter-zoom,0)*1.45))!important}.release-v12 .fabio-expand-demo .fabio-expand-copy{padding:14px 5vw!important}}
 @media(prefers-reduced-motion:reduce){.release-v12 .fabio-expand-demo .fabio-expand-frame img{transform:scale(.91)!important}}
+
+/* TEST — triptyque lumière : cadres alignés et Noyau plein cadre */
+@media(min-width:751px){
+.release-v12 .light-art{align-items:start!important}
+.release-v12 .light-art .work picture{height:420px!important;max-height:none!important;width:100%!important;max-width:100%!important;display:block!important;overflow:hidden!important}
+.release-v12 .light-art .work img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+.release-v12 .light-art .work:nth-child(2) picture{height:420px!important}
+.release-v12 .light-art .work:nth-child(2) img{object-fit:cover!important;object-position:center!important;transform:scale(1.06)!important}
+}
+@media(max-width:750px){.release-v12 .light-art .work:nth-child(2) picture{height:470px!important;overflow:hidden!important}.release-v12 .light-art .work:nth-child(2) img{height:100%!important;width:100%!important;object-fit:cover!important;object-position:center!important;transform:scale(1.04)!important}}
