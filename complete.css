@@ -309,3 +309,15 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 @media(prefers-reduced-motion:reduce){
 .release-v12 .fabio-parker-front,.release-v12 .fabio-parker-side{filter:drop-shadow(0 25px 38px #000a)!important;opacity:1!important;transform:none!important}
 }
+
+/* TEST — Peter Parker : composition aeree, portraits decales sans chevauchement */
+@media(min-width:751px){
+.release-v12 .fabio-parker-photo{width:34vw!important;height:91svh!important}
+.release-v12 .fabio-parker-front{left:12%!important;top:22%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-37svh),0)!important}
+.release-v12 .fabio-parker-side{left:55%!important;top:39%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-48svh),0)!important}
+}
+@media(max-width:750px){
+.release-v12 .fabio-parker-photo{width:59vw!important;height:72svh!important}
+.release-v12 .fabio-parker-front{left:2%!important;top:32%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-39svh),0)!important}
+.release-v12 .fabio-parker-side{left:39%!important;top:55%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-48svh),0)!important}
+}
