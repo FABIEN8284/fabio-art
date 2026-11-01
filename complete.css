@@ -385,3 +385,9 @@ filter:blur(calc((1 - clamp(0, (var(--parker-progress,0) + .05), 1))*8px)) drop-
 @media(prefers-reduced-motion:reduce){
 .release-v12 .fabio-parker-side,.release-v12 .fabio-parker-front{filter:drop-shadow(0 25px 38px #000a)!important}
 }
+
+/* TEST — Peter Parker : cadrage vers la droite et legende plus lisible */
+.release-v12 .fabio-parker-copy{z-index:8!important;text-shadow:0 2px 15px #000b!important}
+.release-v12 .fabio-parker-copy>p:last-child{display:inline-block!important;font-size:clamp(1.15rem,1.7vw,1.55rem)!important;font-weight:700!important;line-height:1.4!important;color:white!important;padding:12px 18px!important;background:rgba(15,14,13,.85)!important;border-left:3px solid #e5d5b7!important}
+@media(min-width:751px){.release-v12 .fabio-parker-side{left:25%!important}.release-v12 .fabio-parker-front{left:61%!important}}
+@media(max-width:750px){.release-v12 .fabio-parker-side{left:12%!important}.release-v12 .fabio-parker-front{left:56%!important}.release-v12 .fabio-parker-copy>p:last-child{font-size:1rem!important;padding:9px 12px!important}}
