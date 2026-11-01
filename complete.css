@@ -430,3 +430,19 @@ filter:none!important;
 @media(max-width:750px){
 .release-v12 .light-art .work:nth-child(2) img{transform:scale(1.12)!important}
 }
+
+/* TEST — immersion : oeuvre ronde entiere au depart, zoom progressif ensuite */
+.release-v12 .fabio-expand-demo .fabio-expand-frame img{
+object-fit:contain!important;
+object-position:center center!important;
+transform:scale(calc(.88 + var(--matter-zoom,0)*1.82))!important;
+transform-origin:center center!important;
+}
+@media(max-width:750px){
+.release-v12 .fabio-expand-demo .fabio-expand-frame img{
+transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
+}
+}
+@media(prefers-reduced-motion:reduce){
+.release-v12 .fabio-expand-demo .fabio-expand-frame img{transform:scale(.88)!important}
+}
