@@ -125,3 +125,6 @@ document.querySelector('#contact-form')?.addEventListener('submit', event => eve
 
 /* V2.1: validated editorial titles on navigation and detail pages. */
 (()=>{const works=window.FABIO_WORKS||[];for(const w of works){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('nav a[href="vue-'+id+'.html"]').forEach(a=>a.textContent=w.title);if(location.pathname.endsWith('/vue-'+id+'.html')){const h=document.querySelector('.detail-grid h1'),p=document.querySelector('.detail-grid .lede');if(h)h.textContent=w.title;if(p)p.textContent=w.description;document.title=w.title+' — FABIO ART';}}})();
+
+/* V2.1: pointer-controlled spotlight; disabled for reduced motion. */
+(()=>{const hero=document.querySelector('.home-light .hero');if(!hero||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;hero.addEventListener('pointermove',e=>{if(document.body.classList.contains('quiet')||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const r=hero.getBoundingClientRect();hero.style.setProperty('--spot-x',(e.clientX-r.left)+'px');hero.style.setProperty('--spot-y',(e.clientY-r.top)+'px');},{passive:true});})();
