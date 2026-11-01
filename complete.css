@@ -701,3 +701,20 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-0 .fabio-explore__art{position:static!important;width:min(100%,450px)!important;margin:28px auto 0!important;filter:drop-shadow(0 12px 14px rgba(0,0,0,.4))!important}
 #chapitre-0 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;clip-path:polygon(13.1% 0.9%,84.8% 11.9%,86.6% 76.4%,18.5% 99.1%)!important}
 }
+
+
+/* TEST — Démarche artistique : arrière-plan d'atelier plus lisible.
+   Ne modifie ni le cadrage ni la photographie centrale. */
+.release-v12 .artist-opening{
+  background:#44403e;
+}
+.release-v12 .artist-opening .artist-backgrounds{
+  opacity:.82;
+}
+.release-v12 .artist-opening .artist-backgrounds picture{
+  filter:blur(2px) brightness(1.18);
+  mask-image:radial-gradient(ellipse at center,#000 42%,rgba(0,0,0,.75) 63%,transparent 92%);
+}
+.release-v12 .artist-opening .artist-main-photo{
+  mask-image:radial-gradient(ellipse at center,#000 55%,rgba(0,0,0,.96) 69%,transparent 91%);
+}
