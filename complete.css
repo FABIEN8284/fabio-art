@@ -138,5 +138,5 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 
 /* V2.1: transitions douces entre les trois images de l'accueil. */
 @media(min-width:901px){.home-light .hero-satellites a{box-shadow:0 16px 40px #0005;border-color:transparent;}.home-light .hero-satellites picture{mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);}}
-.home-light .hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(520px circle at var(--spot-x,50%) var(--spot-y,45%),rgba(255,255,255,.62) 0%,rgba(255,255,255,.32) 26%,rgba(255,255,255,.12) 51%,transparent 78%);mix-blend-mode:screen;transition:opacity .18s;opacity:.95;}
+.home-light .hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse 310px 280px at var(--spot-x,50%) var(--spot-y,45%),rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 25%,rgba(0,0,0,.48) 55%,rgba(0,0,0,.76) 100%);transition:opacity .18s;opacity:1;}
 @media(hover:none),(prefers-reduced-motion:reduce){.home-light .hero::after{display:none;}}
