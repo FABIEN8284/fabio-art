@@ -917,3 +917,8 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 .fabio-ribbon-viewport{padding:clamp(12px,2vh,24px) 0 clamp(12px,2vh,24px)!important}
 .fabio-ribbon-track a{height:clamp(170px,36vh,350px)!important;width:clamp(175px,26vw,360px)!important}
 }
+
+/* TEST — isolation visuelle du titre des œuvres en suspension. */
+.fabio-depth-demo .fabio-depth-copy,.fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{background:transparent!important;background-color:transparent!important;box-shadow:none!important;filter:none!important;mix-blend-mode:normal!important}
+.fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{color:#f4eee2!important;-webkit-text-fill-color:#f4eee2!important;text-shadow:none!important}
+.fabio-depth-demo .fabio-depth-copy h2::before,.fabio-depth-demo .fabio-depth-copy h2::after{content:none!important;display:none!important}
