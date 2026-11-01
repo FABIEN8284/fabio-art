@@ -215,18 +215,14 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .complete.quiet .fabio-depth-card,.complete.quiet .fabio-layer-stage h2,.complete.quiet .fabio-layer-stage a{transform:none!important}
 .complete.quiet .fabio-expand-frame{width:90%!important}
 
-/* Peter Parker — composition editoriale, une oeuvre et un geste. */
-.fabio-parker-demo{box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-height:0;height:calc(100svh - 88px);padding:clamp(12px,2vh,22px) 4vw;background:#f3f0e9;color:#22201c;overflow:hidden}
-.fabio-parker-comparison{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:100%;height:100%;min-width:0}
-.fabio-parker-title{position:static;order:0;align-self:center;margin:0 0 clamp(8px,1.5vh,16px);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.7rem,3vw,3.1rem);font-weight:400;line-height:1.1;letter-spacing:-.035em;color:#24211c;text-shadow:none}
-.fabio-parker-photos{position:relative;order:1;flex:1 1 auto;min-height:0;width:min(100%,850px);height:auto;max-height:calc(100% - 118px);overflow:hidden;background:transparent}
-.fabio-parker-photo{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center}
-.fabio-parker-side{opacity:var(--parker-mix,0);pointer-events:none}
-.fabio-parker-control{position:relative;order:2;left:auto;bottom:auto;transform:none;box-sizing:border-box;width:min(390px,70vw);margin:clamp(12px,2vh,22px) auto 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-.fabio-parker-control input[type=range]{appearance:none;-webkit-appearance:none;display:block;width:100%;height:32px;margin:0;cursor:ew-resize;background:transparent;touch-action:pan-y}
-.fabio-parker-control input[type=range]::-webkit-slider-runnable-track{height:2px;border-radius:0;background:#8e8475}
-.fabio-parker-control input[type=range]::-moz-range-track{height:2px;border-radius:0;background:#8e8475}
-.fabio-parker-control input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-10px;border:2px solid #f3f0e9;border-radius:50%;background:#302b25;box-shadow:0 0 0 1px #302b25}
-.fabio-parker-control input[type=range]::-moz-range-thumb{width:18px;height:18px;border:2px solid #f3f0e9;border-radius:50%;background:#302b25;box-shadow:0 0 0 1px #302b25}
-.fabio-parker-control input[type=range]:focus-visible{outline:2px solid #302b25;outline-offset:5px}
-@media(max-width:750px){.fabio-parker-demo{height:calc(100svh - 88px);min-height:390px;padding:18px 3vw}.fabio-parker-title{font-size:clamp(1.7rem,6vw,2.5rem)}.fabio-parker-photos{max-height:calc(100% - 108px)}.fabio-parker-control{width:min(300px,78vw);margin-top:16px}}
+/* Peter Parker — revelation au defilement : image 2 devoilee horizontalement. */
+.fabio-parker-demo{position:relative;display:block;box-sizing:border-box;height:215svh;min-height:1050px;margin:0;padding:0;background:#f1eee7;color:#24211c}
+.fabio-parker-sticky{position:sticky;top:88px;box-sizing:border-box;height:calc(100svh - 88px);min-height:390px;padding:clamp(14px,3vh,32px) clamp(16px,4vw,72px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.fabio-parker-comparison{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;min-height:0;gap:clamp(10px,2vh,22px)}
+.fabio-parker-photos{position:relative;flex:1 1 auto;width:min(100%,900px);height:100%;min-height:0;max-height:100%;overflow:hidden;background:transparent}
+.fabio-parker-photo{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;object-position:center}
+.fabio-parker-side{opacity:1;clip-path:inset(0 calc((1 - var(--parker-progress,0))*100%) 0 0);pointer-events:none;will-change:clip-path}
+.fabio-parker-caption{flex:0 0 auto;display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:min(100%,900px);padding-top:12px;border-top:1px solid #bdb4a5;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,2vw,2rem);line-height:1.15;letter-spacing:-.025em}
+.fabio-parker-caption span:last-child{font:400 clamp(.7rem,.9vw,.85rem)/1.4 Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#736d63}
+@media(max-width:750px){.fabio-parker-demo{height:190svh;min-height:760px}.fabio-parker-sticky{padding:18px 4vw}.fabio-parker-caption{gap:8px;flex-direction:column}.fabio-parker-caption span:last-child{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){.fabio-parker-side{clip-path:inset(0 0 0 0)}}
