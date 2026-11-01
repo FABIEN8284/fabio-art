@@ -259,3 +259,8 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-expand-demo .fabio-expand-frame img{width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;object-position:50% 49%!important;transform:scale(calc(.94 + var(--matter-zoom,0)*1.75))!important;transform-origin:50% 49%!important;filter:drop-shadow(0 12px 20px #3a302526)!important}
 @media(max-width:750px){.fabio-expand-demo{height:230svh!important}.fabio-expand-demo .fabio-expand-frame{height:calc(100svh - 75px)!important}.fabio-expand-demo .fabio-expand-frame img{object-fit:contain!important;transform:scale(calc(.94 + var(--matter-zoom,0)*1.55))!important}}
 @media(prefers-reduced-motion:reduce){.fabio-expand-demo .fabio-expand-frame img{transform:scale(.94)!important}}
+
+/* TEST — Noyau de lumière : retrouver une photographie centrale dominante */
+.release-v12 .light-art .work:nth-child(2) picture{height:clamp(490px,62vh,650px)!important;max-width:100%!important}
+.release-v12 .light-art .work:nth-child(2) img{height:100%!important;width:100%!important;object-fit:contain!important}
+@media(max-width:750px){.release-v12 .light-art .work:nth-child(2) picture{height:clamp(440px,68vh,600px)!important}}
