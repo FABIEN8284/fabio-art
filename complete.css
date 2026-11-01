@@ -248,3 +248,18 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-parker-comparison label{margin:12px 0 8px}
 .fabio-parker-links{margin-top:12px;font-size:.75rem}
 }
+
+/* TEST — Peter Parker : photographie dominante, interface reduite a un curseur. */
+.fabio-parker-demo{display:block!important;position:relative!important;box-sizing:border-box!important;width:100%;height:calc(100svh - 95px)!important;min-height:460px!important;max-height:none!important;padding:0!important;margin:0!important;background:#11100f!important;color:#fff!important;overflow:hidden}
+.fabio-parker-comparison{width:100%;height:100%;position:relative;min-width:0}
+.fabio-parker-photos{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;background:#11100f!important;overflow:hidden}
+.fabio-parker-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center}
+.fabio-parker-title{position:absolute;z-index:3;top:clamp(15px,3vw,42px);left:clamp(20px,4vw,64px);margin:0;font:400 clamp(1.5rem,2.4vw,2.6rem)/1.1 Georgia,serif;color:#fff;text-shadow:0 2px 16px #000b;pointer-events:none}
+.fabio-parker-control{position:absolute;z-index:4;bottom:clamp(20px,4vh,42px);left:50%;transform:translateX(-50%);width:min(550px,76vw);padding:18px 23px;border:1px solid #ffffff52;border-radius:999px;background:rgba(18,17,16,.72);box-shadow:0 8px 35px #0008;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.fabio-parker-control input[type=range]{appearance:none;-webkit-appearance:none;display:block;width:100%;height:32px;margin:0;cursor:ew-resize;background:transparent;touch-action:pan-y;accent-color:#fff}
+.fabio-parker-control input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:4px;background:linear-gradient(90deg,#fff 0%,#fff 100%)}
+.fabio-parker-control input[type=range]::-moz-range-track{height:3px;border-radius:4px;background:#fff}
+.fabio-parker-control input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border:4px solid #fff;border-radius:50%;background:#292621;box-shadow:0 2px 12px #0009;margin-top:-12px}
+.fabio-parker-control input[type=range]::-moz-range-thumb{width:20px;height:20px;border:4px solid #fff;border-radius:50%;background:#292621;box-shadow:0 2px 12px #0009}
+.fabio-parker-control input[type=range]:focus-visible{outline:2px solid white;outline-offset:8px;border-radius:12px}
+@media(max-width:750px){.fabio-parker-demo{height:calc(100svh - 75px)!important;min-height:380px!important}.fabio-parker-title{top:22px;left:22px}.fabio-parker-control{width:80vw;bottom:24px;padding:13px 18px}}
