@@ -321,3 +321,8 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .release-v12 .fabio-parker-front{left:2%!important;top:32%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-39svh),0)!important}
 .release-v12 .fabio-parker-side{left:39%!important;top:55%!important;transform:translate3d(0,calc(var(--parker-progress,0)*-48svh),0)!important}
 }
+
+/* TEST — Noyau de lumière : montrer l'oeuvre entiere sans recadrage */
+.release-v12 .light-art .work:nth-child(2) picture{background:#292723!important}
+.release-v12 .light-art .work:nth-child(2) img{object-fit:contain!important;object-position:center!important;transform:none!important}
+@media(max-width:750px){.release-v12 .light-art .work:nth-child(2) img{object-fit:contain!important;transform:none!important}}
