@@ -180,11 +180,11 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-ribbon-heading p{color:inherit}
 .fabio-ribbon-viewport{overflow:hidden;width:100%;padding:42px 0 55px}
 .fabio-ribbon-track{display:flex;align-items:center;gap:clamp(18px,3vw,48px);width:max-content;padding:0 7vw;transform:translate3d(var(--ribbon-x,0px),0,0);will-change:transform}
-.fabio-ribbon-track a{display:block;flex:none;width:clamp(190px,26vw,380px);height:clamp(240px,33vw,450px);overflow:hidden;border-radius:3px;box-shadow:0 18px 48px #0008;transform:translateY(var(--ribbon-y,0px)) rotate(var(--ribbon-rotate,0deg));transition:box-shadow .4s ease}
-.fabio-ribbon-track a:nth-child(2){--ribbon-y:35px;--ribbon-rotate:4deg}
-.fabio-ribbon-track a:nth-child(3){--ribbon-y:-35px;--ribbon-rotate:-5deg}
-.fabio-ribbon-track a:nth-child(4){--ribbon-y:22px;--ribbon-rotate:3deg}
-.fabio-ribbon-track a:nth-child(5){--ribbon-y:-24px;--ribbon-rotate:-3deg}
+.fabio-ribbon-track a{display:block;flex:none;width:clamp(190px,26vw,380px);height:clamp(240px,33vw,450px);overflow:hidden;border-radius:3px;box-shadow:0 18px 48px #0008;transform:none;transition:box-shadow .4s ease}
+
+
+
+
 .fabio-ribbon-track img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s ease}
 @media(hover:hover){.fabio-ribbon-track a:hover img,.fabio-ribbon-track a:focus-visible img{transform:scale(1.055)}}
 @media(max-width:700px){.fabio-ribbon-section{padding:65px 0}.fabio-ribbon-viewport{overflow-x:auto;scroll-snap-type:x mandatory}.fabio-ribbon-track{transform:none!important}.fabio-ribbon-track a{scroll-snap-align:center;width:68vw;height:78vw}}
