@@ -809,3 +809,15 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-6 .fabio-explore__art a{display:block!important;width:100%!important}
 #chapitre-6 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important}
 @media(max-width:760px){#chapitre-6.fabio-explore{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;min-height:0!important;padding:40px 20px!important}#chapitre-6 .fabio-explore__text h2{font-size:clamp(36px,10vw,48px)!important}#chapitre-6 .fabio-explore__art{max-width:460px!important}}
+
+/* TEST — Couleur et présence : découpe géométrique des contours réels du tableau.
+   L'original reste inchangé. Le clip CSS masque le mur et le sol. */
+#chapitre-5.fabio-explore{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)!important;align-items:center!important;gap:clamp(28px,5vw,85px)!important;min-height:600px!important;padding:clamp(45px,7vw,110px)!important;background:linear-gradient(135deg,#c4c1be 0%,#93908d 58%,#696663 100%)!important;color:#211e1c!important;overflow:hidden!important}
+#chapitre-5 .fabio-explore__art{position:relative!important;inset:auto!important;width:100%!important;max-width:690px!important;margin:0!important;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))!important}
+#chapitre-5 .fabio-explore__art a{display:block!important;width:100%!important}
+#chapitre-5 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(2% 7.2%,96.5% 2.8%,96.5% 100%,2.3% 78.8%)!important}
+#chapitre-5 .fabio-explore__text{position:relative!important;z-index:2!important;width:auto!important;max-width:560px!important}
+#chapitre-5 .fabio-explore__eyebrow{color:#302c2a!important;text-transform:uppercase!important;letter-spacing:.16em!important}
+#chapitre-5 .fabio-explore__text h2{color:#1b1918!important;font-size:clamp(38px,4.3vw,70px)!important;line-height:1.08!important}
+#chapitre-5 .fabio-explore__lead{color:#292522!important;font-size:clamp(16px,1.3vw,20px)!important;line-height:1.65!important}
+@media(max-width:760px){#chapitre-5.fabio-explore{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:25px!important;min-height:0!important;padding:38px 20px!important}#chapitre-5 .fabio-explore__art{max-width:460px!important;margin:0 auto!important}#chapitre-5 .fabio-explore__text h2{font-size:clamp(36px,10vw,48px)!important}}
