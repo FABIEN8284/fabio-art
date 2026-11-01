@@ -374,3 +374,14 @@ object-position:50% 50%!important;
 transform:none!important;
 filter:none!important;
 }
+
+/* TEST — Peter Parker : flou gauche retarde de 5 points, nettete droite avancee de 5 points */
+.release-v12 .fabio-parker-side{
+filter:blur(calc(clamp(0, (var(--parker-progress,0) - .05) / .95, 1)*7px)) drop-shadow(0 25px 38px #000a)!important;
+}
+.release-v12 .fabio-parker-front{
+filter:blur(calc((1 - clamp(0, (var(--parker-progress,0) + .05), 1))*8px)) drop-shadow(0 25px 38px #000a)!important;
+}
+@media(prefers-reduced-motion:reduce){
+.release-v12 .fabio-parker-side,.release-v12 .fabio-parker-front{filter:drop-shadow(0 25px 38px #000a)!important}
+}
