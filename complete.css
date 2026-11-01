@@ -140,3 +140,35 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 @media(min-width:901px){.home-light .hero-satellites a{box-shadow:0 16px 40px #0005;border-color:transparent;}.home-light .hero-satellites picture{mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);}}
 .home-light .hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse 850px 700px at var(--spot-x,50%) var(--spot-y,45%),rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 25%,rgba(0,0,0,.48) 55%,rgba(0,0,0,.76) 100%);transition:opacity .18s;opacity:1;}
 @media(hover:none),(prefers-reduced-motion:reduce){.home-light .hero::after{display:none;}}
+
+
+/* FABIO ART TEST — essai coordonne des six micro-interactions. */
+@media (prefers-reduced-motion:no-preference){
+  .complete #nav.open{animation:fabio-menu-enter .48s cubic-bezier(.18,.82,.22,1) both}
+  @keyframes fabio-menu-enter{from{opacity:0;transform:translateX(38px)}to{opacity:1;transform:translateX(0)}}
+  .complete #nav a{position:relative;width:fit-content;max-width:100%;transition:color .25s ease}
+  .complete #nav a::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .38s cubic-bezier(.2,.75,.2,1);pointer-events:none}
+  .complete #nav a:hover::after,.complete #nav a:focus-visible::after,.complete #nav a[aria-current]::after{transform:scaleX(1)}
+  .complete .work picture{overflow:hidden}
+  .complete .work picture img{transition:transform .75s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+  @media(hover:hover){.complete .work a:hover picture img,.complete .work a:focus-visible picture img{transform:scale(1.025);filter:brightness(1.14)}}
+  .complete .reveal{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+  .complete .reveal:not(.in){transform:translateY(22px)}
+  .complete .reveal.in{transform:translateY(0)}
+  .complete main h1,.complete main .narrative-title{animation:fabio-title-in 1.05s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes fabio-title-in{from{opacity:0;transform:translateY(22px);clip-path:inset(0 0 28% 0)}to{opacity:1;transform:none;clip-path:inset(0)}}
+  .complete #lightbox[open]{animation:fabio-viewer-in .42s cubic-bezier(.2,.8,.2,1) both}
+  .complete #lightbox[open] #full{animation:fabio-image-in .55s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes fabio-viewer-in{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+  @keyframes fabio-image-in{from{opacity:.4;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:fabio-page-out .22s ease both}
+  ::view-transition-new(root){animation:fabio-page-in .46s ease both}
+  @keyframes fabio-page-out{to{opacity:0;filter:brightness(.75)}}
+  @keyframes fabio-page-in{from{opacity:0;filter:brightness(.8)}to{opacity:1;filter:brightness(1)}}
+}
+@media(prefers-reduced-motion:reduce){
+  .complete .reveal,.complete .reveal:not(.in),.complete main h1,.complete main .narrative-title{animation:none!important;transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}
+}
+.complete.quiet .reveal,.complete.quiet main h1,.complete.quiet main .narrative-title{animation:none!important;transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
