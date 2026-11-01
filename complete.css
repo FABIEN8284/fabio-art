@@ -264,3 +264,15 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .release-v12 .light-art .work:nth-child(2) picture{height:clamp(490px,62vh,650px)!important;max-width:100%!important}
 .release-v12 .light-art .work:nth-child(2) img{height:100%!important;width:100%!important;object-fit:contain!important}
 @media(max-width:750px){.release-v12 .light-art .work:nth-child(2) picture{height:clamp(440px,68vh,600px)!important}}
+
+/* TEST — correction structurelle du scroll immersif : sticky sans ancetre overflow */
+.release-v12 .fabio-expand-demo{position:relative!important;height:225svh!important;min-height:0!important;padding:0!important;margin:0!important;overflow:visible!important;background:#e9e5dd!important;isolation:isolate}
+.release-v12 .fabio-expand-demo .fabio-expand-copy{position:absolute!important;top:0!important;left:0!important;right:0!important;z-index:5!important;padding:clamp(16px,3vh,28px) 6vw!important;background:transparent!important;pointer-events:none!important;color:#28231f!important}
+.release-v12 .fabio-expand-demo .fabio-expand-copy h2{font:clamp(2rem,4.2vw,4.8rem)/1.1 Georgia,serif!important;color:#28231f!important;margin:8px 0!important}
+.release-v12 .fabio-expand-demo .fabio-expand-frame{position:sticky!important;top:88px!important;display:block!important;box-sizing:border-box!important;width:100%!important;max-width:none!important;height:calc(100svh - 88px)!important;min-height:0!important;margin:0!important;overflow:hidden!important;transition:none!important;border:0!important;background:radial-gradient(ellipse at 50% 52%,#f6f3ed,#d7d1c7)!important}
+.release-v12 .fabio-expand-demo .fabio-expand-frame img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;object-position:center!important;transform:scale(calc(.91 + var(--matter-zoom,0)*1.65))!important;transform-origin:50% 51%!important;filter:drop-shadow(0 12px 22px #342d252b)!important;transition:none!important;will-change:transform}
+.release-v12 .fabio-parker-demo{height:225svh!important;min-height:0!important;overflow:visible!important;position:relative!important;isolation:isolate}
+.release-v12 .fabio-parker-sticky{position:sticky!important;top:88px!important;height:calc(100svh - 88px)!important;box-sizing:border-box!important;overflow:hidden!important}
+.release-v12 .fabio-parker-photos{height:clamp(400px,60vh,700px)!important}
+@media(max-width:750px){.release-v12 .fabio-expand-demo,.release-v12 .fabio-parker-demo{height:205svh!important}.release-v12 .fabio-expand-demo .fabio-expand-frame,.release-v12 .fabio-parker-sticky{top:75px!important;height:calc(100svh - 75px)!important}.release-v12 .fabio-expand-demo .fabio-expand-frame img{transform:scale(calc(.91 + var(--matter-zoom,0)*1.45))!important}.release-v12 .fabio-expand-demo .fabio-expand-copy{padding:14px 5vw!important}}
+@media(prefers-reduced-motion:reduce){.release-v12 .fabio-expand-demo .fabio-expand-frame img{transform:scale(.91)!important}}
