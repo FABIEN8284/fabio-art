@@ -950,3 +950,10 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 
 /* TEST — renforcer le repère de chapitre sans changer le texte. */
 #demarche .piano-editorial-kicker{font-size:clamp(15px,1.55vw,20px)!important;font-weight:700!important;letter-spacing:.11em!important;color:#542923!important;margin-bottom:22px!important;text-transform:uppercase!important}
+
+/* TEST — réglages validés dans l'éditeur paysage : largeur 135 %, décalages 0. */
+@media(min-width:761px){
+#demarche .piano-editorial-photo{width:135%!important;max-width:none!important;justify-self:start!important;transform:translate(0px,0px)!important}
+#demarche .piano-editorial-photo img{max-height:none!important;height:auto!important}
+}
+@media(max-width:760px){#demarche .piano-editorial-photo{max-width:100%!important;transform:none!important}}
