@@ -534,3 +534,34 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     transform:translate(-50.6%,-54.7%)!important;transition:none!important;
   }
 }
+
+/* TEST — œuvres en suspension : mouvements continus et cadrage non destructif.
+   Le JPEG source reste inchangé. */
+.release-v12 .fabio-depth-demo .fabio-depth-stage{perspective:900px;isolation:isolate}
+.release-v12 .fabio-depth-demo .fabio-depth-card{
+  will-change:transform;
+  transition:box-shadow .25s ease-out;
+  animation:fabio-depth-float 6.5s ease-in-out infinite alternate;
+}
+.release-v12 .fabio-depth-demo .depth-back{--float-y:-34px;--float-x:22px;--float-rot:-4deg;animation-duration:7.2s;animation-delay:-2.1s}
+.release-v12 .fabio-depth-demo .depth-mid{--float-y:44px;--float-x:-30px;--float-rot:5deg;animation-duration:5.8s;animation-delay:-1.8s;z-index:3}
+.release-v12 .fabio-depth-demo .depth-front{--float-y:-48px;--float-x:32px;--float-rot:-5deg;animation-duration:6.6s;animation-delay:-4s}
+@keyframes fabio-depth-float{
+  0%{transform:translate3d(calc(var(--depth-x,0px) - var(--float-x,0px)),calc(var(--depth-y,0px) - var(--float-y,0px)),0) rotate(calc(-1 * var(--float-rot,0deg)))}
+  100%{transform:translate3d(calc(var(--depth-x,0px) + var(--float-x,0px)),calc(var(--depth-y,0px) + var(--float-y,0px)),0) rotate(var(--float-rot,0deg))}
+}
+.release-v12 .fabio-depth-demo .depth-mid img{
+  width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:50% 50%!important;
+  transform:scale(1.23)!important;transform-origin:center!important;
+}
+.release-v12 .fabio-depth-demo .fabio-depth-card:hover{box-shadow:0 38px 90px #000c}
+@media(max-width:760px){
+  .release-v12 .fabio-depth-demo .depth-back{--float-y:-13px;--float-x:8px;--float-rot:-2deg}
+  .release-v12 .fabio-depth-demo .depth-mid{--float-y:17px;--float-x:-9px;--float-rot:2deg}
+  .release-v12 .fabio-depth-demo .depth-front{--float-y:-18px;--float-x:10px;--float-rot:-2deg}
+}
+@media(prefers-reduced-motion:reduce){
+  .release-v12 .fabio-depth-demo .fabio-depth-card{animation:none!important;transform:none!important}
+}
+.complete.quiet .fabio-depth-demo .fabio-depth-card{animation:none!important}
