@@ -556,11 +556,11 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 }
 /* TEST — Correction visuelle du placement circulaire.
    La photographie reste intacte ; zoom au défilement conservé.
-   Le cercle est masqué et placé à droite du titre, sans chevauchement initial. */
+   Diamètre extérieur augmenté de 81 à 85svh. Le cercle est masqué et placé à droite du titre, sans chevauchement initial. */
 @media(min-width:761px){
   .release-v12 .fabio-expand-demo{
     display:grid!important;
-    grid-template-columns:minmax(0,1fr) minmax(0,81svh)!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,85svh)!important;
     column-gap:clamp(12px,2vw,32px)!important;
     position:relative!important;
     padding-inline:clamp(20px,4vw,80px)!important;
@@ -577,7 +577,7 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     position:sticky!important;
     top:calc(var(--header-height) + 2.5svh)!important;
     left:auto!important;
-    width:min(81svh,100%)!important;
+    width:min(85svh,100%)!important;
     height:auto!important;
     aspect-ratio:1/1!important;
     margin:0!important;
