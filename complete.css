@@ -132,3 +132,6 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .complete picture.focus-15 img,.complete picture.focus-16 img{filter:blur(4px);transform:scale(1.008)}
 .complete picture.focus-15::after{mask-image:radial-gradient(ellipse 67% 68% at 47% 52%,#000 45%,transparent 100%)}
 .complete picture.focus-16::after{mask-image:radial-gradient(ellipse 56% 60% at 55% 45%,#000 42%,transparent 100%)}
+
+/* V2.1 TEST: photographie centrale agrandie et jonctions adoucies. */
+@media(min-width:901px){.home-light .hero-art-link{width:86.4%;}.home-light .hero-art-link picture{mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);}}
