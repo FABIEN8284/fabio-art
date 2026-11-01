@@ -535,6 +535,13 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   }
 }
 
+/* TEST — Rapprocher le bord du tableau rond du titre (desktop seulement).
+   Décalage visuel du cadre, sans toucher au zoom piloté par complete.js. */
+@media(min-width:761px){
+  .release-v12 .fabio-expand-demo .fabio-expand-frame{
+    transform:translateX(-clamp(80px,18vw,310px))!important;
+  }
+}
 /* TEST — Démarche artistique : image centrale agrandie, bas rogné en CSS.
    Ne modifie pas les fichiers images ni les animations existantes. */
 @media(min-width:761px){
