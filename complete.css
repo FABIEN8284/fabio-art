@@ -326,3 +326,14 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .release-v12 .light-art .work:nth-child(2) picture{background:#292723!important}
 .release-v12 .light-art .work:nth-child(2) img{object-fit:contain!important;object-position:center!important;transform:none!important}
 @media(max-width:750px){.release-v12 .light-art .work:nth-child(2) img{object-fit:contain!important;transform:none!important}}
+
+/* TEST — Peter Parker : inversion des deux vues, meme rythme vertical */
+@media(min-width:751px){
+.release-v12 .fabio-parker-front{left:55%!important;top:39%!important}
+.release-v12 .fabio-parker-side{left:12%!important;top:22%!important}
+}
+@media(max-width:750px){
+.release-v12 .fabio-parker-photo{width:47vw!important}
+.release-v12 .fabio-parker-front{left:51%!important;top:55%!important}
+.release-v12 .fabio-parker-side{left:2%!important;top:32%!important}
+}
