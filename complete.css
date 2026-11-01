@@ -214,3 +214,18 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 @media(prefers-reduced-motion:reduce){.fabio-depth-card,.fabio-expand-frame{transition:none}.fabio-depth-card,.fabio-layer-stage h2,.fabio-layer-stage a{transform:none!important}.fabio-expand-frame{width:90%!important}}
 .complete.quiet .fabio-depth-card,.complete.quiet .fabio-layer-stage h2,.complete.quiet .fabio-layer-stage a{transform:none!important}
 .complete.quiet .fabio-expand-frame{width:90%!important}
+
+/* TEST — Peter Parker : deux photographies authentiques, fondu interactif. */
+.fabio-parker-demo{background:#e9e5dc;color:#171714;padding:95px 7vw 105px;display:grid;grid-template-columns:minmax(240px,.8fr) minmax(320px,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.fabio-parker-copy h2{font:clamp(2.5rem,5vw,5.3rem)/1.07 Georgia,serif;margin:15px 0 25px}
+.fabio-parker-copy>p:last-child{font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.6;max-width:450px}
+.fabio-parker-comparison{min-width:0}
+.fabio-parker-photos{height:clamp(350px,48vw,650px);position:relative;overflow:hidden;background:#28251e}
+.fabio-parker-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.fabio-parker-side{opacity:var(--parker-mix,0);pointer-events:none}
+.fabio-parker-comparison label{display:block;font-size:.9rem;margin:22px 0 12px}
+.fabio-parker-comparison input[type=range]{display:block;width:100%;accent-color:#302820;cursor:ew-resize}
+.fabio-parker-labels,.fabio-parker-links{display:flex;justify-content:space-between;gap:15px;font-size:.85rem;margin-top:10px}
+.fabio-parker-links{margin-top:25px;flex-wrap:wrap}
+.fabio-parker-links a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:750px){.fabio-parker-demo{grid-template-columns:1fr;padding:65px 5vw;gap:25px}.fabio-parker-photos{height:110vw;max-height:600px}}
