@@ -798,3 +798,14 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 @media(max-width:760px){
   .release-v12 .artist-opening .artist-main-photo{width:94%!important;}
 }
+
+/* TEST — Chapitre 6 : composition autonome, photographie originale préservée. */
+#chapitre-6.fabio-explore{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:center!important;gap:clamp(20px,4vw,72px)!important;min-height:620px!important;padding:clamp(44px,7vw,110px)!important;background:linear-gradient(135deg,#bdbbb9 0%,#8c8987 58%,#666260 100%)!important;color:#1e1b1a!important;overflow:hidden!important}
+#chapitre-6 .fabio-explore__text{position:relative!important;z-index:2!important;max-width:560px!important;width:auto!important}
+#chapitre-6 .fabio-explore__eyebrow{color:#302c2a!important;text-transform:uppercase!important;letter-spacing:.16em!important}
+#chapitre-6 .fabio-explore__text h2{color:#1b1918!important;font-size:clamp(36px,4vw,68px)!important;line-height:1.07!important}
+#chapitre-6 .fabio-explore__lead{color:#282523!important;font-size:clamp(16px,1.3vw,20px)!important;line-height:1.65!important}
+#chapitre-6 .fabio-explore__art{position:relative!important;inset:auto!important;width:100%!important;max-width:620px!important;margin:0 auto!important;filter:drop-shadow(0 20px 20px rgba(0,0,0,.32))!important}
+#chapitre-6 .fabio-explore__art a{display:block!important;width:100%!important}
+#chapitre-6 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important}
+@media(max-width:760px){#chapitre-6.fabio-explore{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;min-height:0!important;padding:40px 20px!important}#chapitre-6 .fabio-explore__text h2{font-size:clamp(36px,10vw,48px)!important}#chapitre-6 .fabio-explore__art{max-width:460px!important}}
