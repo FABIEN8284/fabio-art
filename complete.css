@@ -345,3 +345,18 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 @media(max-width:750px){
 .release-v12 .light-art .work:nth-child(2) img{transform:scale(1.05)!important;transform-origin:center!important}
 }
+
+/* TEST — Peter Parker : vue gauche nette au depart, vue droite revelee au scroll */
+.release-v12 .fabio-parker-side{
+opacity:calc(1 - var(--parker-progress,0)*.57)!important;
+filter:blur(calc(var(--parker-progress,0)*7px)) drop-shadow(0 25px 38px #000a)!important;
+}
+.release-v12 .fabio-parker-front{
+opacity:calc(.38 + var(--parker-progress,0)*.62)!important;
+filter:blur(calc((1 - var(--parker-progress,0))*8px)) drop-shadow(0 25px 38px #000a)!important;
+}
+@media(min-width:751px){.release-v12 .fabio-parker-side{left:19%!important}}
+@media(max-width:750px){.release-v12 .fabio-parker-side{left:7%!important}}
+@media(prefers-reduced-motion:reduce){
+.release-v12 .fabio-parker-side,.release-v12 .fabio-parker-front{opacity:1!important;filter:drop-shadow(0 25px 38px #000a)!important}
+}
