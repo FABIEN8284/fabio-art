@@ -135,3 +135,8 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 
 /* V2.1 TEST: photographie centrale agrandie et jonctions adoucies. */
 @media(min-width:901px){.home-light .hero-art-link{width:86.4%;}.home-light .hero-art-link picture{mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);}}
+
+/* V2.1: transitions douces entre les trois images de l'accueil. */
+@media(min-width:901px){.home-light .hero-satellites a{box-shadow:0 16px 40px #0005;border-color:transparent;}.home-light .hero-satellites picture{mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);}}
+.home-light .hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(430px circle at var(--spot-x,50%) var(--spot-y,45%),#fff2,transparent 75%);transition:opacity .3s;opacity:.55;}
+@media(hover:none),(prefers-reduced-motion:reduce){.home-light .hero::after{display:none;}}
