@@ -235,3 +235,18 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-expand-demo .fabio-expand-frame{position:sticky!important;top:88px;display:block!important;width:100%!important;height:calc(100svh - 88px)!important;margin:0!important;overflow:hidden!important;background:radial-gradient(ellipse,#f5f2eb,#ddd8cd)!important;transform:none!important}
 .fabio-expand-demo .fabio-expand-frame img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:scale(calc(1 + var(--matter-zoom,0)*.95))!important;transform-origin:50% 49%;filter:drop-shadow(0 12px 20px #3a302526)}
 @media(prefers-reduced-motion:reduce){.fabio-expand-demo .fabio-expand-frame img{transform:none!important}}
+
+/* Peter Parker : meme langage editorial que Les oeuvres en suspension */
+.fabio-parker-demo{height:max(980px,130svh)!important;min-height:0!important;background:#181714!important;color:#f4eee2!important;overflow:clip}
+.fabio-parker-sticky{top:88px!important;height:calc(100svh - 88px)!important;min-height:0!important;padding:clamp(24px,5vh,55px) 7vw!important;display:block!important;overflow:hidden!important}
+.fabio-parker-copy{position:relative;z-index:4;max-width:620px}
+.fabio-parker-copy .eyebrow{font-size:.78rem;letter-spacing:.14em;font-weight:700}
+.fabio-parker-copy h2{font:clamp(2.5rem,5.5vw,5.8rem)/1.05 Georgia,serif;margin:16px 0;color:#fff}
+.fabio-parker-copy>p:last-child{font-size:1rem;margin:14px 0}
+.fabio-parker-comparison{display:block!important;width:100%!important;height:auto!important;max-width:1100px!important;margin:-25px auto 0!important}
+.fabio-parker-photos{height:clamp(410px,58vh,640px)!important;width:100%!important;overflow:visible}
+.fabio-parker-photo{object-fit:contain!important;object-position:center!important;max-height:100%!important}
+.fabio-parker-front{width:55%!important;height:100%!important;top:0!important;left:7%!important;z-index:2!important;opacity:calc(1 - var(--parker-progress,0)*.82)!important;transform:translate3d(calc(var(--parker-progress,0)*-10%),calc(var(--parker-progress,0)*5%),0) scale(calc(1 - var(--parker-progress,0)*.12))!important;filter:blur(calc(var(--parker-progress,0)*5px)) drop-shadow(0 22px 38px #0009)!important}
+.fabio-parker-side{width:55%!important;height:100%!important;top:4%!important;left:43%!important;z-index:3!important;opacity:calc(.18 + var(--parker-progress,0)*.82)!important;transform:translate3d(calc((1 - var(--parker-progress,0))*9%),calc((1 - var(--parker-progress,0))*5%),0) scale(calc(.88 + var(--parker-progress,0)*.12))!important;filter:blur(calc((1 - var(--parker-progress,0))*5px)) drop-shadow(0 22px 38px #0009)!important}
+@media(max-width:750px){.fabio-parker-demo{height:max(800px,145svh)!important}.fabio-parker-sticky{top:75px!important;height:calc(100svh - 75px)!important;padding:28px 5vw!important}.fabio-parker-copy h2{font-size:clamp(2.5rem,9vw,4.4rem)}.fabio-parker-comparison{margin:24px auto 0!important}.fabio-parker-photos{height:clamp(350px,58vh,580px)!important}.fabio-parker-front{width:75%!important;left:0!important}.fabio-parker-side{width:75%!important;left:25%!important}}
+@media(prefers-reduced-motion:reduce){.fabio-parker-front,.fabio-parker-side{filter:drop-shadow(0 22px 38px #0009)!important}}
