@@ -740,3 +740,61 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     aspect-ratio:1.22;
   }
 }
+
+
+/* TEST — Démarche artistique : photographie intégrale, sans masque ni zoom.
+   Présentation sobre et réversible, originaux intacts. */
+.release-v12 .artist-opening{
+  background:#272322!important;
+}
+.release-v12 .artist-opening .artist-backgrounds{
+  display:none!important;
+}
+.release-v12 .artist-opening .artist-opening-images{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:clamp(20px,3vw,48px) 0!important;
+  margin-bottom:0!important;
+  background:#272322!important;
+  overflow:visible!important;
+}
+.release-v12 .artist-opening .artist-main-photo{
+  position:relative!important;
+  display:block!important;
+  width:min(88%,1100px)!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  margin:0 auto!important;
+  overflow:visible!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  filter:none!important;
+  transform:none!important;
+}
+.release-v12 .artist-opening .artist-main-photo picture{
+  position:static!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+}
+.release-v12 .artist-opening .artist-main-photo img{
+  position:static!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+  filter:none!important;
+  clip-path:none!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+}
+@media(max-width:760px){
+  .release-v12 .artist-opening .artist-main-photo{width:94%!important;}
+}
