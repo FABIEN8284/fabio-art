@@ -984,3 +984,6 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 @media(hover:hover){.release-v12 .atelier-cinematic .atelier-grid>.work a:hover picture img{transform:scale(1.045)!important;filter:brightness(1.07)!important}}
 @media(max-width:760px){.release-v12 .atelier-cinematic .atelier-grid{grid-template-columns:1fr!important;gap:35px!important}.release-v12 .atelier-cinematic .atelier-grid>.work,.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:1!important;grid-row:auto!important;margin-top:0!important}.release-v12 .atelier-cinematic .atelier-grid>.work picture{aspect-ratio:4/3!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(1) picture{aspect-ratio:3/4!important}}
 @media(prefers-reduced-motion:reduce){.release-v12 .atelier-cinematic .atelier-grid>.work,.release-v12 .atelier-cinematic .atelier-grid img{transition:none!important;animation:none!important;transform:none!important}}
+
+/* TEST — Atelier : réduire la taille globale des photographies sans changer la composition. */
+@media(min-width:761px){.release-v12 .atelier-cinematic .atelier-grid{max-width:1030px!important;gap:clamp(18px,2.5vw,34px)!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(4){margin-top:20px}}
