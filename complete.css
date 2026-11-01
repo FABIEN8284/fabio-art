@@ -957,3 +957,6 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #demarche .piano-editorial-photo img{max-height:none!important;height:auto!important}
 }
 @media(max-width:760px){#demarche .piano-editorial-photo{max-width:100%!important;transform:none!important}}
+
+/* TEST — nouveau réglage JSON piano : largeur 115 %, x -70 px, y +5 px. */
+@media(min-width:761px){#demarche .piano-editorial-photo{width:115%!important;transform:translate(-70px,5px)!important}}
