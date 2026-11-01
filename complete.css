@@ -903,3 +903,7 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #demarche h1{margin:12px auto 16px!important}
 #demarche .lede{margin:0 auto!important}
 @media(max-width:700px){#demarche.artist-opening{padding:60px 5vw!important}#demarche .artist-main-photo{width:min(100%,360px)!important}#demarche .artist-main-photo img{max-height:350px!important}#demarche .artist-opening-images{margin-bottom:25px!important}}
+
+/* TEST — rétablir le contraste d'origine du titre des œuvres en suspension. */
+.fabio-depth-demo{background:#181714!important;color:#f4eee2!important}
+.fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{color:#f4eee2!important;opacity:1!important}
