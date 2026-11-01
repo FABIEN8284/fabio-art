@@ -535,11 +535,23 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   }
 }
 
-/* TEST — Rapprocher le bord du tableau rond du titre (desktop seulement).
-   Décalage visuel du cadre, sans toucher au zoom piloté par complete.js. */
+/* TEST — Rapprochement du titre et de l'œuvre : agir sur la grille, pas sur un transform. */
 @media(min-width:761px){
+  .release-v12 .fabio-expand-demo{
+    grid-template-columns:max-content minmax(0,1fr)!important;
+    column-gap:clamp(0px,1vw,20px)!important;
+  }
+  .release-v12 .fabio-expand-demo .fabio-expand-copy{
+    width:max-content!important;
+    max-width:min(48vw,690px)!important;
+  }
   .release-v12 .fabio-expand-demo .fabio-expand-frame{
-    transform:translateX(-clamp(80px,18vw,310px))!important;
+    justify-self:start!important;
+    transform:none!important;
+    max-width:100%!important;
+    height:auto!important;
+    width:min(calc(100svh - var(--header-height) - 24px),100%)!important;
+    aspect-ratio:1/1!important;
   }
 }
 /* TEST — Démarche artistique : +15 % de largeur sur ordinateur uniquement.
