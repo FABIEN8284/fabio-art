@@ -229,3 +229,22 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-parker-links{margin-top:25px;flex-wrap:wrap}
 .fabio-parker-links a{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:750px){.fabio-parker-demo{grid-template-columns:1fr;padding:65px 5vw;gap:25px}.fabio-parker-photos{height:110vw;max-height:600px}}
+
+/* TEST — Peter Parker : demonstration complete visible sans defilement sur desktop. */
+@media(min-width:751px){
+.fabio-parker-demo{box-sizing:border-box;min-height:0;height:min(750px,calc(100svh - 95px));padding:24px clamp(28px,5vw,85px);grid-template-columns:minmax(210px,.65fr) minmax(420px,1.35fr);gap:clamp(20px,4vw,65px);align-items:center}
+.fabio-parker-copy h2{font-size:clamp(2.4rem,4vw,4.5rem);line-height:1.04;margin:10px 0 16px}
+.fabio-parker-copy>p:last-child{font-size:1rem;line-height:1.45}
+.fabio-parker-photos{height:clamp(280px,calc(100svh - 260px),560px)}
+.fabio-parker-comparison label{margin:12px 0 8px;font-size:.82rem}
+.fabio-parker-labels{margin-top:5px}
+.fabio-parker-links{margin-top:10px;font-size:.75rem}
+}
+@media(max-width:750px){
+.fabio-parker-demo{padding:40px 5vw;gap:12px}
+.fabio-parker-copy h2{font-size:clamp(2rem,9vw,3rem);margin:6px 0}
+.fabio-parker-copy>p:last-child{font-size:.95rem;margin:0}
+.fabio-parker-photos{height:min(58svh,105vw)}
+.fabio-parker-comparison label{margin:12px 0 8px}
+.fabio-parker-links{margin-top:12px;font-size:.75rem}
+}
