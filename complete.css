@@ -987,3 +987,18 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 
 /* TEST — Atelier : réduire la taille globale des photographies sans changer la composition. */
 @media(min-width:761px){.release-v12 .atelier-cinematic .atelier-grid{max-width:1030px!important;gap:clamp(18px,2.5vw,34px)!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(4){margin-top:20px}}
+
+/* TEST — Atelier final sobre : cinq photographies de même format, fond noir. */
+.release-v12 .atelier-cinematic{background:#0d0d0d!important;color:#f0ece7!important;overflow:visible!important}
+.release-v12 .atelier-cinematic .section-heading h2,.release-v12 .atelier-cinematic .section-heading p{color:#f0ece7!important}
+.release-v12 .atelier-cinematic .atelier-grid{max-width:1040px!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:38px 28px!important;align-items:start!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work,.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:span 2!important;grid-row:auto!important;margin:0!important;min-width:0!important;transition-delay:0s!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(4){grid-column:2 / span 2!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(5){grid-column:4 / span 2!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work picture,.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n) picture{aspect-ratio:4/5!important;height:auto!important;width:100%!important;background:#181818!important;box-shadow:none!important;border-radius:0!important;overflow:hidden!important;transform:none!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work picture img,.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n) img{width:100%!important;height:100%!important;max-height:none!important;object-fit:contain!important;filter:none!important;transform:none!important;transition:transform .7s ease,filter .7s ease!important}
+.release-v12 .atelier-cinematic .atelier-grid>.work .caption{color:#e8e2db!important;font-size:clamp(16px,1.4vw,20px)!important;text-align:center!important;margin-top:12px!important}
+@media(hover:hover){.release-v12 .atelier-cinematic .atelier-grid>.work a:hover picture img{transform:scale(1.025)!important;filter:brightness(1.06)!important}}
+@media(min-width:601px) and (max-width:850px){.release-v12 .atelier-cinematic .atelier-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:660px!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:auto!important}}
+@media(max-width:600px){.release-v12 .atelier-cinematic .atelier-grid{grid-template-columns:1fr!important;max-width:380px!important;gap:32px!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:1!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n) picture{aspect-ratio:4/5!important}}
+@media(prefers-reduced-motion:reduce){.release-v12 .atelier-cinematic .atelier-grid>.work picture img{transition:none!important}}
