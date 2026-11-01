@@ -875,3 +875,6 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 .release-v12 .atelier-grid>.work:nth-child(-n+3) picture img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;filter:none!important;clip-path:none!important}
 .release-v12 .atelier-grid>.work:nth-child(-n+3) .caption{display:block!important;width:100%!important;margin-top:18px!important;padding-top:14px!important;border-top:1px solid rgba(0,0,0,.16)!important}
 @media(max-width:760px){.release-v12 .atelier-grid>.work:nth-child(-n+3) picture{height:clamp(260px,72vw,420px)!important}}
+
+/* TEST — ruban horizontal fixe pendant le scroll, desktop uniquement. */
+@media(min-width:701px){.fabio-ribbon-section{height:210vh!important;min-height:0!important;padding:0!important;overflow:visible!important}.fabio-ribbon-sticky{position:sticky;top:0;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#11100e}.fabio-ribbon-heading{flex:0 0 auto;padding-bottom:0}.fabio-ribbon-viewport{flex:0 0 auto}}
