@@ -922,3 +922,8 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 .fabio-depth-demo .fabio-depth-copy,.fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{background:transparent!important;background-color:transparent!important;box-shadow:none!important;filter:none!important;mix-blend-mode:normal!important}
 .fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{color:#f4eee2!important;-webkit-text-fill-color:#f4eee2!important;text-shadow:none!important}
 .fabio-depth-demo .fabio-depth-copy h2::before,.fabio-depth-demo .fabio-depth-copy h2::after{content:none!important;display:none!important}
+
+/* TEST — hiérarchie éditoriale de Peter Parker. */
+.fabio-parker-copy .fabio-parker-kicker{font-family:Arial,sans-serif!important;font-size:clamp(11px,.9vw,13px)!important;font-weight:600!important;letter-spacing:.18em!important;text-transform:uppercase!important;line-height:1.5!important;margin:0 0 20px!important;color:#d5c9b8!important}
+.fabio-parker-copy h2{font-size:clamp(2.7rem,5.3vw,5.8rem)!important;line-height:1.07!important;max-width:760px!important}
+.fabio-parker-copy h2+p{max-width:520px!important;line-height:1.5!important}
