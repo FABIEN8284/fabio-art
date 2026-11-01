@@ -391,3 +391,27 @@ filter:blur(calc((1 - clamp(0, (var(--parker-progress,0) + .05), 1))*8px)) drop-
 .release-v12 .fabio-parker-copy>p:last-child{display:inline-block!important;font-size:clamp(1.15rem,1.7vw,1.55rem)!important;font-weight:700!important;line-height:1.4!important;color:white!important;padding:12px 18px!important;background:rgba(15,14,13,.85)!important;border-left:3px solid #e5d5b7!important}
 @media(min-width:751px){.release-v12 .fabio-parker-side{left:25%!important}.release-v12 .fabio-parker-front{left:61%!important}}
 @media(max-width:750px){.release-v12 .fabio-parker-side{left:12%!important}.release-v12 .fabio-parker-front{left:56%!important}.release-v12 .fabio-parker-copy>p:last-child{font-size:1rem!important;padding:9px 12px!important}}
+
+/* TEST — Peter Parker : plus d'espace sous le titre, flou retarde, legende sobre */
+.release-v12 .fabio-parker-copy>p:last-child{
+display:block!important;width:max-content!important;max-width:90%!important;
+background:transparent!important;border:0!important;box-shadow:none!important;
+padding:0!important;margin:16px 0 0!important;
+font-size:clamp(1.05rem,1.4vw,1.3rem)!important;
+font-weight:400!important;letter-spacing:.015em!important;
+color:#f4eee4!important;text-shadow:0 2px 10px #000!important;
+}
+.release-v12 .fabio-parker-side{
+filter:blur(calc(clamp(0, (var(--parker-progress,0) - .23) / .77, 1)*7px)) drop-shadow(0 25px 38px #000a)!important;
+}
+@media(min-width:751px){
+.release-v12 .fabio-parker-side{left:33%!important}
+.release-v12 .fabio-parker-front{left:67%!important}
+}
+@media(max-width:750px){
+.release-v12 .fabio-parker-side{left:19%!important}
+.release-v12 .fabio-parker-front{left:61%!important}
+}
+@media(prefers-reduced-motion:reduce){
+.release-v12 .fabio-parker-side{filter:drop-shadow(0 25px 38px #000a)!important}
+}
