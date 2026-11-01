@@ -907,3 +907,13 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 /* TEST — rétablir le contraste d'origine du titre des œuvres en suspension. */
 .fabio-depth-demo{background:#181714!important;color:#f4eee2!important}
 .fabio-depth-demo .fabio-depth-copy h2,.fabio-depth-demo .fabio-depth-copy p{color:#f4eee2!important;opacity:1!important}
+
+/* TEST — ruban : respiration du titre et hauteur adaptée à la fenêtre (desktop). */
+@media(min-width:701px){
+.fabio-ribbon-sticky{top:94px!important;height:calc(100svh - 94px)!important;min-height:0!important;justify-content:center!important;gap:clamp(12px,2vh,22px)!important}
+.fabio-ribbon-heading{padding:0 7vw!important;max-width:950px!important}
+.fabio-ribbon-heading h2{font-size:clamp(2.3rem,5vw,5rem)!important;line-height:1.07!important;margin:10px 0 16px!important}
+.fabio-ribbon-heading p{margin-top:0!important;margin-bottom:0!important}
+.fabio-ribbon-viewport{padding:clamp(12px,2vh,24px) 0 clamp(12px,2vh,24px)!important}
+.fabio-ribbon-track a{height:clamp(170px,36vh,350px)!important;width:clamp(175px,26vw,360px)!important}
+}
