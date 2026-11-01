@@ -947,3 +947,6 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #demarche .piano-editorial-photo img{display:block;width:100%!important;height:auto!important;max-height:530px;object-fit:contain!important;filter:none!important;clip-path:none!important;mask:none!important;-webkit-mask:none!important}
 #demarche .piano-editorial-photo figcaption{margin:15px 0 0;font:italic 17px/1.4 Georgia,serif;color:#44322e;text-align:center}
 @media(max-width:760px){#demarche.artist-piano-editorial{padding:65px 6vw!important}#demarche .piano-editorial-layout{grid-template-columns:1fr;gap:35px}#demarche .piano-editorial-copy h1{font-size:clamp(2.7rem,10vw,4.4rem)!important}#demarche .piano-editorial-photo{width:min(100%,350px)}}
+
+/* TEST — renforcer le repère de chapitre sans changer le texte. */
+#demarche .piano-editorial-kicker{font-size:clamp(15px,1.55vw,20px)!important;font-weight:700!important;letter-spacing:.11em!important;color:#542923!important;margin-bottom:22px!important;text-transform:uppercase!important}
