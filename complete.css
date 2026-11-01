@@ -554,10 +554,42 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     aspect-ratio:1/1!important;
   }
 }
-/* TEST — Démarche artistique : +15 % de largeur sur ordinateur uniquement.
-   Aucun rognage ni modification des animations ou des pixels de la photo. */
+/* TEST — Démarche artistique : cadrage transmis par JSON (module HTML).
+   Cadre 66 % x 83 % du module ; ratio du cadre ~1.22.
+   Zoom 129 %, déplacement +4.548 % horizontal / +14.614 % vertical.
+   Original intact ; uniquement le rendu CSS, sur ordinateur. */
 @media(min-width:761px){
+  .release-v12 .artist-opening .artist-opening-images{
+    min-height:0;
+    height:auto;
+    overflow:visible;
+  }
   .release-v12 .artist-opening .artist-main-photo{
-    width:74.75%;
+    position:relative;
+    display:block;
+    width:66%;
+    aspect-ratio:1.22;
+    height:auto;
+    overflow:hidden;
+    margin-inline:auto;
+  }
+  .release-v12 .artist-opening .artist-main-photo picture{
+    display:block;
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .release-v12 .artist-opening .artist-main-photo img{
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%;
+    height:100%;
+    max-height:none;
+    object-fit:contain;
+    object-position:center;
+    transform:translate(4.548%,14.614%) scale(1.29);
+    transform-origin:center;
   }
 }
