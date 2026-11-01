@@ -828,3 +828,17 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-6 .fabio-explore__text{grid-column:2!important;grid-row:1!important}
 #chapitre-6 .fabio-explore__art img{clip-path:polygon(9.35% 13.1%,57.8% 1.3%,58.5% 2%,58.5% 66.3%,57.7% 67.3%,10.2% 52.2%)!important}
 @media(max-width:760px){#chapitre-6.fabio-explore{display:flex!important;flex-direction:column!important}#chapitre-6 .fabio-explore__art{order:0!important}#chapitre-6 .fabio-explore__text{order:1!important}}
+
+/* TEST — Alignement des chapitres 5 et 6 sur le modèle Formes du vivant.
+   Découpe suivant les quatre coins réels des œuvres, sans recadrage ni retouche. */
+#chapitre-5.fabio-explore,#chapitre-6.fabio-explore{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)!important;gap:clamp(30px,5vw,90px)!important;align-items:center!important;min-height:680px!important;padding:clamp(44px,6vw,90px)!important;background:linear-gradient(125deg,#c1bfbd 0%,#969390 56%,#676361 100%)!important;overflow:hidden!important}
+#chapitre-5 .fabio-explore__text,#chapitre-6 .fabio-explore__text{position:relative!important;grid-column:auto!important;grid-row:auto!important;width:auto!important;max-width:580px!important;z-index:1!important}
+#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{position:relative!important;inset:auto!important;grid-column:auto!important;grid-row:auto!important;width:100%!important;max-width:none!important;margin:0!important;filter:drop-shadow(0 17px 14px rgba(0,0,0,.33))!important}
+#chapitre-5 .fabio-explore__art a,#chapitre-6 .fabio-explore__art a{display:block!important;width:100%!important}
+#chapitre-5 .fabio-explore__art img,#chapitre-6 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important}
+/* Tableau rouge : coins du cadre mesurés dans la photographie 960 × 754. */
+#chapitre-5 .fabio-explore__art img{clip-path:polygon(2.1% 7.2%,99% 2.7%,99% 99.9%,2.3% 78.7%)!important}
+/* Tableau violet : coins du cadre mesurés dans la photographie 2048 × 1536. */
+#chapitre-6 .fabio-explore__art img{clip-path:polygon(13.25% 18.7%,82.5% 1.9%,83.1% 95.8%,14.45% 74.4%)!important}
+#chapitre-6.fabio-explore{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)!important}
+@media(max-width:760px){#chapitre-5.fabio-explore,#chapitre-6.fabio-explore{display:flex!important;flex-direction:column!important;gap:22px!important;min-height:0!important;padding:40px 20px!important}#chapitre-5 .fabio-explore__text{order:0!important}#chapitre-5 .fabio-explore__art{order:1!important}#chapitre-6 .fabio-explore__art{order:0!important}#chapitre-6 .fabio-explore__text{order:1!important}}
