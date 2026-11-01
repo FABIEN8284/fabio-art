@@ -815,7 +815,7 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-5.fabio-explore{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)!important;align-items:center!important;gap:clamp(28px,5vw,85px)!important;min-height:600px!important;padding:clamp(45px,7vw,110px)!important;background:linear-gradient(135deg,#c4c1be 0%,#93908d 58%,#696663 100%)!important;color:#211e1c!important;overflow:hidden!important}
 #chapitre-5 .fabio-explore__art{position:relative!important;inset:auto!important;width:100%!important;max-width:690px!important;margin:0!important;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))!important}
 #chapitre-5 .fabio-explore__art a{display:block!important;width:100%!important}
-#chapitre-5 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(2% 7.2%,96.5% 2.8%,96.5% 100%,2.3% 78.8%)!important}
+#chapitre-5 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(2.1% 7.4%,96.2% 2.9%,96.3% 2.9%,95.7% 97.7%,95.1% 99.1%,2.5% 79.0%)!important}
 #chapitre-5 .fabio-explore__text{position:relative!important;z-index:2!important;width:auto!important;max-width:560px!important}
 #chapitre-5 .fabio-explore__eyebrow{color:#302c2a!important;text-transform:uppercase!important;letter-spacing:.16em!important}
 #chapitre-5 .fabio-explore__text h2{color:#1b1918!important;font-size:clamp(38px,4.3vw,70px)!important;line-height:1.08!important}
