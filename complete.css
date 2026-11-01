@@ -250,3 +250,12 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .fabio-parker-side{width:55%!important;height:100%!important;top:4%!important;left:43%!important;z-index:3!important;opacity:calc(.18 + var(--parker-progress,0)*.82)!important;transform:translate3d(calc((1 - var(--parker-progress,0))*9%),calc((1 - var(--parker-progress,0))*5%),0) scale(calc(.88 + var(--parker-progress,0)*.12))!important;filter:blur(calc((1 - var(--parker-progress,0))*5px)) drop-shadow(0 22px 38px #0009)!important}
 @media(max-width:750px){.fabio-parker-demo{height:max(800px,145svh)!important}.fabio-parker-sticky{top:75px!important;height:calc(100svh - 75px)!important;padding:28px 5vw!important}.fabio-parker-copy h2{font-size:clamp(2.5rem,9vw,4.4rem)}.fabio-parker-comparison{margin:24px auto 0!important}.fabio-parker-photos{height:clamp(350px,58vh,580px)!important}.fabio-parker-front{width:75%!important;left:0!important}.fabio-parker-side{width:75%!important;left:25%!important}}
 @media(prefers-reduced-motion:reduce){.fabio-parker-front,.fabio-parker-side{filter:drop-shadow(0 22px 38px #0009)!important}}
+
+/* TEST — Entrer dans la matière : plein cadre et zoom profond au scroll */
+.fabio-expand-demo{height:265svh!important;background:#e9e5dd!important}
+.fabio-expand-demo .fabio-expand-copy{padding:18px 5vw 12px!important;background:#e9e5dd!important;color:#27231f!important}
+.fabio-expand-demo .fabio-expand-copy h2{color:#27231f!important}
+.fabio-expand-demo .fabio-expand-frame{width:100%!important;max-width:none!important;height:calc(100svh - 88px)!important;overflow:hidden!important;background:#e9e5dd!important}
+.fabio-expand-demo .fabio-expand-frame img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:50% 49%!important;transform:scale(calc(1.12 + var(--matter-zoom,0)*1.85))!important;transform-origin:50% 49%!important;filter:drop-shadow(0 12px 20px #3a302526)!important}
+@media(max-width:750px){.fabio-expand-demo{height:230svh!important}.fabio-expand-demo .fabio-expand-frame{height:calc(100svh - 75px)!important}.fabio-expand-demo .fabio-expand-frame img{object-fit:cover!important;transform:scale(calc(1.04 + var(--matter-zoom,0)*1.65))!important}}
+@media(prefers-reduced-motion:reduce){.fabio-expand-demo .fabio-expand-frame img{transform:scale(1.12)!important}}
