@@ -554,33 +554,37 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     aspect-ratio:1/1!important;
   }
 }
-/* TEST — Placement circulaire validé par JSON v2.
-   left 17.7 % ; top 2.5 % ; diamètre 81svh. Animation image inchangée.
-   Position exprimée relativement à la largeur de la section. */
+/* TEST — Correction visuelle du placement circulaire.
+   La photographie reste intacte ; zoom au défilement conservé.
+   Le cercle est masqué et placé à droite du titre, sans chevauchement initial. */
 @media(min-width:761px){
   .release-v12 .fabio-expand-demo{
-    display:block!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,81svh)!important;
+    column-gap:clamp(12px,2vw,32px)!important;
     position:relative!important;
+    padding-inline:clamp(20px,4vw,80px)!important;
   }
   .release-v12 .fabio-expand-demo .fabio-expand-copy{
     position:sticky!important;
     top:32svh!important;
-    width:max-content!important;
-    max-width:48vw!important;
-    margin-left:clamp(20px,4vw,80px)!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0!important;
     z-index:2!important;
   }
   .release-v12 .fabio-expand-demo .fabio-expand-frame{
     position:sticky!important;
-    top:2.5svh!important;
-    left:17.7%!important;
-    width:81svh!important;
-    height:81svh!important;
-    max-width:none!important;
-    margin:calc(-1 * (32svh + 1em)) 0 0 17.7%!important;
-    justify-self:auto!important;
-    transform:none!important;
+    top:calc(var(--header-height) + 2.5svh)!important;
+    left:auto!important;
+    width:min(81svh,100%)!important;
+    height:auto!important;
     aspect-ratio:1/1!important;
+    margin:0!important;
+    justify-self:end!important;
+    border-radius:50%!important;
+    overflow:hidden!important;
+    transform:none!important;
     z-index:1!important;
   }
 }
