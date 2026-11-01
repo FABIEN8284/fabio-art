@@ -466,56 +466,59 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-3 .fabio-explore__art{position:static!important;width:100%!important;margin-top:28px!important}
 }
 
-/* TEST — Immersion ronde : une composition stable, sans zoom JS ni surcouches visuelles. */
+/* TEST — Immersion ronde : photographie originale, mouvement au defilement restaure.
+   --matter-zoom est mis a jour par complete.js ; ne pas neutraliser le transform. */
 .release-v12 .fabio-expand-demo{
   --header-height:95px;
   display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(0,calc(100svh - var(--header-height)))!important;
-  align-items:center!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,calc(100svh - var(--header-height) - 24px))!important;
+  align-items:start!important;
   gap:clamp(16px,2vw,44px)!important;
   box-sizing:border-box!important;
   width:100%!important;
-  height:calc(100svh - var(--header-height))!important;
+  height:210svh!important;
   min-height:0!important;
   padding:0 clamp(20px,4vw,80px)!important;
   margin:0!important;
-  overflow:hidden!important;
+  overflow:clip!important;
   background:#e9e5dd!important;
 }
 .release-v12 .fabio-expand-demo .fabio-expand-copy{
-  position:relative!important;inset:auto!important;z-index:2!important;
-  align-self:center!important;min-width:0!important;width:auto!important;
-  padding:0!important;margin:0!important;background:transparent!important;
-  pointer-events:auto!important;
+  position:sticky!important;top:32svh!important;inset-inline:auto!important;
+  z-index:2!important;align-self:start!important;min-width:0!important;
+  width:auto!important;padding:0!important;margin:0!important;
+  background:transparent!important;pointer-events:auto!important;
 }
 .release-v12 .fabio-expand-demo .fabio-expand-copy h2{
   font:400 clamp(38px,4vw,76px)/1.08 Georgia,serif!important;
   margin:12px 0 0!important;max-width:100%!important;
 }
 .release-v12 .fabio-expand-demo .fabio-expand-frame{
-  position:relative!important;inset:auto!important;top:auto!important;
-  justify-self:center!important;align-self:center!important;
-  box-sizing:border-box!important;
-  width:auto!important;max-width:none!important;
-  height:100%!important;aspect-ratio:1/1!important;
-  padding:0!important;margin:0!important;overflow:hidden!important;
-  background:transparent!important;transform:none!important;transition:none!important;
+  position:sticky!important;top:var(--header-height)!important;
+  inset-inline:auto!important;justify-self:center!important;align-self:start!important;
+  box-sizing:border-box!important;width:auto!important;max-width:none!important;
+  height:calc(100svh - var(--header-height) - 24px)!important;
+  aspect-ratio:1/1!important;padding:0!important;margin:0!important;
+  overflow:hidden!important;background:transparent!important;
+  transform:none!important;transition:none!important;
 }
 .release-v12 .fabio-expand-demo .fabio-expand-frame img{
   position:absolute!important;left:50%!important;top:50%!important;
   display:block!important;width:111%!important;height:auto!important;
   max-width:none!important;object-fit:initial!important;object-position:initial!important;
-  transform:translate(-50.6%,-54.7%)!important;transform-origin:center!important;
-  filter:none!important;transition:none!important;
+  transform:translate(-50.6%,-54.7%) scale(calc(1 + var(--matter-zoom,0)*.42))!important;
+  transform-origin:50% 54.7%!important;filter:none!important;
+  transition:transform .08s linear!important;
 }
 @media(max-width:760px){
   .release-v12 .fabio-expand-demo{
     display:flex!important;flex-direction:column!important;align-items:stretch!important;
-    height:auto!important;min-height:0!important;gap:20px!important;
-    padding:30px 0 24px!important;overflow:hidden!important;
+    height:175svh!important;min-height:0!important;gap:20px!important;
+    padding:30px 0 24px!important;overflow:clip!important;
   }
   .release-v12 .fabio-expand-demo .fabio-expand-copy{
-    padding:0 20px!important;align-self:stretch!important;
+    position:relative!important;top:auto!important;padding:0 20px!important;
+    align-self:stretch!important;
   }
   .release-v12 .fabio-expand-demo .fabio-expand-copy h2{
     font-size:clamp(36px,10vw,54px)!important;
@@ -523,5 +526,11 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   .release-v12 .fabio-expand-demo .fabio-expand-frame{
     width:100vw!important;height:100vw!important;max-width:100%!important;
     flex:none!important;align-self:center!important;
+    top:var(--header-height)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .release-v12 .fabio-expand-demo .fabio-expand-frame img{
+    transform:translate(-50.6%,-54.7%)!important;transition:none!important;
   }
 }
