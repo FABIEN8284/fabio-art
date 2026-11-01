@@ -455,7 +455,7 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-3 .fabio-explore__eyebrow{font:700 .9cqw/1 Helvetica,Arial,sans-serif!important;letter-spacing:.14em!important;text-transform:uppercase;margin:0 0 2.4cqw .4cqw!important;color:#161616!important}
 #chapitre-3 .fabio-explore__text h2{font:400 5.5cqw/1 "Times New Roman",Times,serif!important;letter-spacing:-.025em!important;margin:0 0 3cqw .4cqw!important;color:#161616!important;max-width:none!important}
 #chapitre-3 .fabio-explore__lead{font:400 1.22cqw/1.73 Helvetica,Arial,sans-serif!important;color:#1d1d1d!important;margin:0!important;max-width:none!important}
-#chapitre-3 .fabio-explore__art{position:absolute;left:41.1%;top:6%;width:58.6%;margin:0!important;filter:drop-shadow(0 1.8cqw 1.6cqw rgba(0,0,0,.55));overflow:visible!important;transform:none!important}
+#chapitre-3 .fabio-explore__art{position:absolute;left:45.2%;top:9.5%;width:51.6%;margin:0!important;filter:drop-shadow(0 1.8cqw 1.6cqw rgba(0,0,0,.55));overflow:visible!important;transform:none!important}
 #chapitre-3 .fabio-explore__art img{display:block!important;width:100%!important;max-width:none!important;height:auto!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(31.77% 2.11%,73.96% 2.57%,98.12% 90.33%,98.33% 93.96%,97.29% 95.77%,2.92% 91.09%,2.08% 86.40%)}
 @media(max-width:760px){
 #chapitre-3.fabio-explore{aspect-ratio:auto!important;display:flex!important;flex-direction:column!important;padding:32px 20px 28px!important;background:linear-gradient(180deg,#bcbbba 0 45%,#7d7a78 100%)!important}
