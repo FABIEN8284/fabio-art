@@ -360,3 +360,17 @@ filter:blur(calc((1 - var(--parker-progress,0))*8px)) drop-shadow(0 25px 38px #0
 @media(prefers-reduced-motion:reduce){
 .release-v12 .fabio-parker-side,.release-v12 .fabio-parker-front{opacity:1!important;filter:drop-shadow(0 25px 38px #000a)!important}
 }
+
+/* TEST — Noyau de lumière : cadrage intégral conforme à la référence, aucun bord coupé */
+.release-v12 .light-art .work:nth-child(2) picture{
+overflow:hidden!important;
+background:#30281f!important;
+}
+.release-v12 .light-art .work:nth-child(2) img{
+width:100%!important;
+height:100%!important;
+object-fit:contain!important;
+object-position:50% 50%!important;
+transform:none!important;
+filter:none!important;
+}
