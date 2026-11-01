@@ -337,3 +337,11 @@ html:has(.quiet)::view-transition-old(root),html:has(.quiet)::view-transition-ne
 .release-v12 .fabio-parker-front{left:51%!important;top:55%!important}
 .release-v12 .fabio-parker-side{left:2%!important;top:32%!important}
 }
+
+/* TEST — Noyau de lumière : agrandissement doux 5 %, cercle préservé */
+@media(min-width:751px){
+.release-v12 .light-art .work:nth-child(2) img{transform:scale(1.05)!important;transform-origin:center!important}
+}
+@media(max-width:750px){
+.release-v12 .light-art .work:nth-child(2) img{transform:scale(1.05)!important;transform-origin:center!important}
+}
