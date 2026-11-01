@@ -879,11 +879,15 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 /* TEST — ruban horizontal fixe pendant le scroll, desktop uniquement. */
 @media(min-width:701px){.fabio-ribbon-section{height:210vh!important;min-height:0!important;padding:0!important;overflow:visible!important}.fabio-ribbon-sticky{position:sticky;top:0;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#11100e}.fabio-ribbon-heading{flex:0 0 auto;padding-bottom:0}.fabio-ribbon-viewport{flex:0 0 auto}}
 
-/* TEST — deux chapitres : photographies originales intégrales, sans découpe destructrice. */
-#chapitre-5 .fabio-explore__art img,#chapitre-6 .fabio-explore__art img{clip-path:none!important;-webkit-clip-path:none!important;object-fit:contain!important;width:100%!important;height:auto!important;max-height:480px!important;max-width:100%!important;transform:none!important;border-radius:2px;box-shadow:0 18px 36px rgba(0,0,0,.23)}
-#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{max-width:560px!important;overflow:visible!important;align-self:center!important}
-#chapitre-5,#chapitre-6{min-height:0!important;padding-top:clamp(65px,7vw,105px)!important;padding-bottom:clamp(65px,7vw,105px)!important}
-@media(max-width:700px){#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{width:100%!important;max-width:100%!important}#chapitre-5 .fabio-explore__art img,#chapitre-6 .fabio-explore__art img{max-height:380px!important}}
+/* TEST — chapitres 5 et 6 : détourage CSS non destructif, selon le guide Drive Formes du vivant.
+   Géométries propres aux originaux (cadres inclus). Aucune modification des fichiers JPG. */
+#chapitre-5 .fabio-explore__art img,#chapitre-6 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;object-fit:contain!important;transform:none!important;filter:none!important;box-shadow:none!important;border-radius:0!important}
+/* IMG_7049_IA.JPG : cadre rouge entier, du bord supérieur au coin inférieur droit. */
+#chapitre-5 .fabio-explore__art img{clip-path:polygon(2.1% 7.1%,99.2% 2.8%,92.1% 99.7%,2.4% 78.9%)!important;-webkit-clip-path:polygon(2.1% 7.1%,99.2% 2.8%,92.1% 99.7%,2.4% 78.9%)!important}
+/* IMG_0024_IA.JPG : cadre violet et épaisseur latérale conservés. */
+#chapitre-6 .fabio-explore__art img{clip-path:polygon(13.6% 19.3%,84.6% 1.8%,85.4% 97.7%,15.0% 76.0%)!important;-webkit-clip-path:polygon(13.6% 19.3%,84.6% 1.8%,85.4% 97.7%,15.0% 76.0%)!important}
+#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{filter:drop-shadow(0 16px 15px rgba(0,0,0,.3))!important;overflow:visible!important;max-width:560px!important}
+@media(max-width:760px){#chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{max-width:100%!important}}
 
 /* TEST — ouverture Démarche : œuvre sur piano conservée, présentation de galerie. */
 #demarche.artist-opening{background:linear-gradient(145deg,#c9c5c1 0%,#a5a09b 55%,#78736e 100%)!important;color:#211c19!important;min-height:0!important;padding:clamp(64px,7vw,105px) 6vw!important;overflow:hidden!important;text-align:center}
