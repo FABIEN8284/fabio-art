@@ -122,3 +122,44 @@
 
 // Contact is intentionally inactive until an approved server endpoint is configured.
 document.querySelector('#contact-form')?.addEventListener('submit', event => event.preventDefault());
+
+/* V2.1: validated editorial titles on navigation and detail pages. */
+(()=>{const works=window.FABIO_WORKS||[];for(const w of works){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('nav a[href="vue-'+id+'.html"]').forEach(a=>a.textContent=w.title);if(location.pathname.endsWith('/vue-'+id+'.html')){const h=document.querySelector('.detail-grid h1'),p=document.querySelector('.detail-grid .lede');if(h)h.textContent=w.title;if(p)p.textContent=w.description;document.title=w.title+' — FABIO ART';}}})();
+
+/* V2.1: pointer-controlled spotlight; disabled for reduced motion. */
+(()=>{const hero=document.querySelector('.home-light .hero');if(!hero||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;hero.addEventListener('pointermove',e=>{if(document.body.classList.contains('quiet')||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const r=hero.getBoundingClientRect();hero.style.setProperty('--spot-x',(e.clientX-r.left)+'px');hero.style.setProperty('--spot-y',(e.clientY-r.top)+'px');},{passive:true});})();
+
+/* V2.1: gallery captions use the same approved titles. */
+(()=>{for(const w of window.FABIO_WORKS||[]){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('.work a[href="vue-'+id+'.html"] .caption span').forEach(el=>el.textContent=w.title);}})();
+
+/* TEST: ruban horizontal fixe, interpolation temporelle pour amortir les à-coups de molette. */
+(()=>{
+ const section=document.querySelector('.fabio-ribbon-section'),track=section?.querySelector('.fabio-ribbon-track');
+ if(!track)return;
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)'),mobile=matchMedia('(max-width:700px)');
+ let current=0,target=0,frame=0,last=0;
+ const disabled=()=>reduced.matches||mobile.matches||document.body.classList.contains('quiet');
+ function step(time){frame=0;if(disabled()){track.style.removeProperty('--ribbon-x');current=target=0;last=0;return}
+  const dt=last?Math.min(64,time-last):16;last=time;
+  const factor=1-Math.exp(-dt/135);
+  current+=(target-current)*factor;
+  if(Math.abs(target-current)<.25)current=target;
+  track.style.setProperty('--ribbon-x',current.toFixed(2)+'px');
+  if(current!==target)frame=requestAnimationFrame(step);else last=0;
+ }
+ function update(){if(disabled()){if(frame)cancelAnimationFrame(frame);frame=0;last=0;current=target=0;track.style.removeProperty('--ribbon-x');return}
+  const r=section.getBoundingClientRect(),range=Math.max(1,r.height-innerHeight),progress=Math.max(0,Math.min(1,-r.top/range)),overflow=Math.max(0,track.scrollWidth-innerWidth);
+  target=-overflow*progress;
+  if(!frame&&Math.abs(target-current)>.25)frame=requestAnimationFrame(step);
+ }
+ addEventListener('scroll',update,{passive:true});addEventListener('resize',update,{passive:true});reduced.addEventListener('change',update);mobile.addEventListener('change',update);document.querySelector('#motion')?.addEventListener('click',update);update();
+})();
+
+/* TEST — mouvements controles par le pointeur et le defilement. */
+(()=>{const depth=document.querySelector('.fabio-depth-demo'),expand=document.querySelector('.fabio-expand-demo'),layer=document.querySelector('.fabio-layer-demo');if(!depth&&!expand&&!layer)return;const reduce=matchMedia('(prefers-reduced-motion:reduce)'),fine=matchMedia('(hover:hover) and (pointer:fine)');let pending=false;const enabled=()=>!reduce.matches&&!document.body.classList.contains('quiet');if(depth){depth.addEventListener('pointermove',e=>{if(!enabled()||!fine.matches)return;const r=depth.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*65,y=((e.clientY-r.top)/r.height-.5)*45;depth.querySelectorAll('.fabio-depth-card').forEach(card=>{const k=Number.parseFloat(getComputedStyle(card).getPropertyValue('--depth-factor'))||1;card.style.setProperty('--depth-x',(x*k).toFixed(1)+'px');card.style.setProperty('--depth-y',(y*k).toFixed(1)+'px')})},{passive:true});depth.addEventListener('pointerleave',()=>depth.querySelectorAll('.fabio-depth-card').forEach(card=>{card.style.removeProperty('--depth-x');card.style.removeProperty('--depth-y')}))}function paint(){pending=false;const ok=enabled();if(expand){const r=expand.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height*.4)));expand.style.setProperty('--expand-width',ok?(68+32*p).toFixed(1)+'%':'90%')}if(layer){const r=layer.getBoundingClientRect(),p=Math.max(-1,Math.min(1,(r.top+r.height/2-innerHeight/2)/innerHeight));const title=layer.querySelector('.fabio-layer-stage h2'),photo=layer.querySelector('.fabio-layer-stage a');if(title)title.style.setProperty('--layer-text',ok?(p*65).toFixed(1)+'px':'0px');if(photo)photo.style.setProperty('--layer-photo',ok?(-p*36).toFixed(1)+'px':'0px')}}function schedule(){if(!pending){pending=true;requestAnimationFrame(paint)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',schedule);document.querySelector('#motion')?.addEventListener('click',schedule);paint()})();
+
+/* Peter Parker — progression du reveal liee au scroll, reversible. */
+(()=>{const section=document.querySelector('.fabio-parker-demo');if(!section)return;const reduce=matchMedia('(prefers-reduced-motion: reduce)');let queued=false;function paint(){queued=false;const rect=section.getBoundingClientRect();const travel=Math.max(1,section.offsetHeight-(innerHeight-88));const progress=reduce.matches?1:Math.max(0,Math.min(1,-rect.top/travel));section.style.setProperty('--parker-progress',progress.toFixed(4))}function schedule(){if(!queued){queued=true;requestAnimationFrame(paint)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',schedule);paint()})();
+
+/* TEST : zoom de la matiere synchronise au defilement */
+(()=>{const el=document.querySelector('.fabio-expand-demo');if(!el)return;const reduced=matchMedia('(prefers-reduced-motion:reduce)');let busy=false;function render(){busy=false;const rect=el.getBoundingClientRect(),travel=Math.max(1,el.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/travel));el.style.setProperty('--matter-zoom',reduced.matches?'0':p.toFixed(4))}function schedule(){if(!busy){busy=true;requestAnimationFrame(render)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});render()})();
