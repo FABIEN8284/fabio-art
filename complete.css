@@ -656,3 +656,26 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-2 .fabio-explore__art{left:7%!important;top:4%!important;width:39%!important}
 #chapitre-2 .fabio-explore__text{left:54%!important;top:22%!important;width:39%!important}
 }
+
+
+/* TEST — Un chemin autodidacte : oeuvre seule, mur et canapé masqués.
+   Le portrait reste intact ; composition adaptée de Formes du vivant. */
+@media(min-width:761px){
+#chapitre-1.fabio-explore{position:relative!important;display:block!important;aspect-ratio:1.88!important;min-height:0!important;container-type:inline-size;overflow:hidden!important;background:radial-gradient(ellipse at 74% 40%,rgba(241,239,231,.56),transparent 52%),linear-gradient(135deg,#bcbbba 0%,#898683 54%,#686562 100%)!important;padding:0!important}
+#chapitre-1 .fabio-explore__text{position:absolute!important;left:5.2%!important;top:19%!important;width:39%!important;z-index:2!important}
+#chapitre-1 .fabio-explore__eyebrow{font-size:1cqw!important;margin:0 0 2cqw!important}
+#chapitre-1 .fabio-explore__text h2{font:400 4.2cqw/1.1 Georgia,serif!important;margin:0 0 3cqw!important;color:#161616!important}
+#chapitre-1 .fabio-explore__lead{font:400 1.22cqw/1.73 Helvetica,Arial,sans-serif!important;color:#1d1d1d!important;max-width:none!important}
+#chapitre-1 .fabio-explore__art{position:absolute!important;left:53%!important;top:4%!important;width:39%!important;margin:0!important;filter:drop-shadow(0 1.8cqw 1.6cqw rgba(0,0,0,.48))!important;overflow:visible!important;transform:none!important}
+#chapitre-1 .fabio-explore__art a{display:block!important}
+#chapitre-1 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;transform:none!important;filter:none!important;clip-path:polygon(21.8% 15.1%,81.1% 14.3%,81.1% 78.7%,23.5% 78.7%)!important}
+}
+@media(max-width:760px){
+#chapitre-1.fabio-explore{aspect-ratio:auto!important;display:flex!important;flex-direction:column!important;padding:32px 20px 28px!important;background:linear-gradient(180deg,#bcbbba 0%,#7d7a78 100%)!important}
+#chapitre-1 .fabio-explore__text{position:static!important;width:auto!important}
+#chapitre-1 .fabio-explore__eyebrow{font-size:11px!important;margin:0 0 14px!important}
+#chapitre-1 .fabio-explore__text h2{font-size:44px!important;margin:0 0 18px!important}
+#chapitre-1 .fabio-explore__lead{font-size:16px!important;line-height:1.6!important}
+#chapitre-1 .fabio-explore__art{position:static!important;width:min(100%,450px)!important;margin:28px auto 0!important;filter:drop-shadow(0 12px 14px rgba(0,0,0,.4))!important}
+#chapitre-1 .fabio-explore__art img{display:block!important;width:100%!important;height:auto!important;clip-path:polygon(21.8% 15.1%,81.1% 14.3%,81.1% 78.7%,23.5% 78.7%)!important}
+}
