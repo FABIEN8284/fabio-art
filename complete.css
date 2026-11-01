@@ -867,3 +867,11 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #chapitre-5 .fabio-explore__lead,#chapitre-6 .fabio-explore__lead{font-size:16px!important;line-height:1.6!important}
 #chapitre-5 .fabio-explore__art,#chapitre-6 .fabio-explore__art{position:static!important;width:100%!important;max-width:none!important;margin:28px 0 0!important;order:1!important}
 }
+
+/* TEST — Galerie Atelier : trois premières photographies entières, dimensions et ombres harmonisées. */
+.release-v12 .atelier-grid>.work:nth-child(-n+3){min-width:0!important;align-self:stretch!important}
+.release-v12 .atelier-grid>.work:nth-child(-n+3) a{display:flex!important;flex-direction:column!important;height:100%!important;text-decoration:none!important}
+.release-v12 .atelier-grid>.work:nth-child(-n+3) picture{box-sizing:border-box!important;width:100%!important;height:clamp(230px,27vw,390px)!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important;background:transparent!important;filter:drop-shadow(0 12px 15px rgba(0,0,0,.15))!important}
+.release-v12 .atelier-grid>.work:nth-child(-n+3) picture img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;filter:none!important;clip-path:none!important}
+.release-v12 .atelier-grid>.work:nth-child(-n+3) .caption{display:block!important;width:100%!important;margin-top:18px!important;padding-top:14px!important;border-top:1px solid rgba(0,0,0,.16)!important}
+@media(max-width:760px){.release-v12 .atelier-grid>.work:nth-child(-n+3) picture{height:clamp(260px,72vw,420px)!important}}
