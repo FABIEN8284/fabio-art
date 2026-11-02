@@ -120,8 +120,7 @@
   contrast(); updateMotion();
 })();
 
-// Contact is intentionally inactive until an approved server endpoint is configured.
-document.querySelector('#contact-form')?.addEventListener('submit', event => event.preventDefault());
+// Contact form submits to the configured Formspree endpoint via native HTML POST.
 
 /* V2.1: validated editorial titles on navigation and detail pages. */
 (()=>{const works=window.FABIO_WORKS||[];for(const w of works){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('nav a[href="vue-'+id+'.html"]').forEach(a=>a.textContent=w.title);if(location.pathname.endsWith('/vue-'+id+'.html')){const h=document.querySelector('.detail-grid h1'),p=document.querySelector('.detail-grid .lede');if(h)h.textContent=w.title;if(p)p.textContent=w.description;document.title=w.title+' — FABIO ART';}}})();
