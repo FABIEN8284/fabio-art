@@ -1016,3 +1016,13 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     contain:paint;
   }
 }
+
+/* TEST — désactivation temporaire du zoom mobile Entrer en matière */
+@media (max-width:750px) {
+  .release-v12 .fabio-expand-demo .fabio-expand-frame img,
+  .fabio-expand-demo .fabio-expand-frame img {
+    transform:scale(1.28)!important;
+    transition:none!important;
+    animation:none!important;
+  }
+}
