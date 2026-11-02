@@ -1002,3 +1002,17 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 @media(min-width:601px) and (max-width:850px){.release-v12 .atelier-cinematic .atelier-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:660px!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:auto!important}}
 @media(max-width:600px){.release-v12 .atelier-cinematic .atelier-grid{grid-template-columns:1fr!important;max-width:380px!important;gap:32px!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n){grid-column:1!important}.release-v12 .atelier-cinematic .atelier-grid>.work:nth-child(n) picture{aspect-ratio:4/5!important}}
 @media(prefers-reduced-motion:reduce){.release-v12 .atelier-cinematic .atelier-grid>.work picture img{transition:none!important}}
+
+
+/* TEST — fluidité mobile uniquement : éviter le recalcul coûteux du drop-shadow
+   pendant le zoom au défilement, sans changer le cadrage ni l'effet desktop. */
+@media (max-width:750px) and (prefers-reduced-motion:no-preference) {
+  .release-v12 .fabio-expand-demo .fabio-expand-frame img {
+    filter:none!important;
+    -webkit-filter:none!important;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transform-style:flat;
+    contain:paint;
+  }
+}
