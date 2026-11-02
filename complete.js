@@ -120,7 +120,34 @@
   contrast(); updateMotion();
 })();
 
-// Contact form submits to the configured Formspree endpoint via native HTML POST.
+// Contact: asynchronous Formspree submission, with native POST fallback.
+(()=>{
+  const form=document.querySelector('#contact-form');
+  if(!form)return;
+  const status=document.querySelector('#contact-status');
+  const button=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',async event=>{
+    if(!window.fetch||!window.FormData)return; // Keep native HTML submission as fallback.
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    button.disabled=true;
+    status.textContent='Envoi de votre message en cours…';
+    try{
+      const response=await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+      if(!response.ok)throw new Error('Formspree rejected submission');
+      form.reset();
+      status.textContent='Merci, votre message a bien été envoyé. Je vous répondrai dès que possible.';
+    }catch(error){
+      status.textContent='Le message n’a pas pu être envoyé. Vérifiez votre connexion et réessayez.';
+    }finally{
+      button.disabled=false;
+    }
+  });
+})();
 
 /* V2.1: validated editorial titles on navigation and detail pages. */
 (()=>{const works=window.FABIO_WORKS||[];for(const w of works){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('nav a[href="vue-'+id+'.html"]').forEach(a=>a.textContent=w.title);if(location.pathname.endsWith('/vue-'+id+'.html')){const h=document.querySelector('.detail-grid h1'),p=document.querySelector('.detail-grid .lede');if(h)h.textContent=w.title;if(p)p.textContent=w.description;document.title=w.title+' — FABIO ART';}}})();
