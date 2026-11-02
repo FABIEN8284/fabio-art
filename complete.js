@@ -187,5 +187,38 @@
 /* Peter Parker — progression du reveal liee au scroll, reversible. */
 (()=>{const section=document.querySelector('.fabio-parker-demo');if(!section)return;const reduce=matchMedia('(prefers-reduced-motion: reduce)');let queued=false;function paint(){queued=false;const rect=section.getBoundingClientRect();const travel=Math.max(1,section.offsetHeight-(innerHeight-88));const progress=reduce.matches?1:Math.max(0,Math.min(1,-rect.top/travel));section.style.setProperty('--parker-progress',progress.toFixed(4))}function schedule(){if(!queued){queued=true;requestAnimationFrame(paint)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',schedule);paint()})();
 
-/* TEST : zoom de la matiere synchronise au defilement */
-(()=>{const el=document.querySelector('.fabio-expand-demo');if(!el)return;const reduced=matchMedia('(prefers-reduced-motion:reduce)');let busy=false;function render(){busy=false;const rect=el.getBoundingClientRect(),travel=Math.max(1,el.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/travel));el.style.setProperty('--matter-zoom',reduced.matches?'0':p.toFixed(4))}function schedule(){if(!busy){busy=true;requestAnimationFrame(render)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});render()})();
+/* TEST : zoom mobile lissé; comportement ordinateur conservé. */
+(()=>{
+  const el=document.querySelector('.fabio-expand-demo');if(!el)return;
+  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+  const mobile=matchMedia('(max-width:750px)');
+  let frame=0,target=0,current=0,last=0;
+  const progress=()=>{
+    const rect=el.getBoundingClientRect();
+    const travel=Math.max(1,el.offsetHeight-innerHeight);
+    return reduced.matches?0:Math.max(0,Math.min(1,-rect.top/travel));
+  };
+  const draw=value=>el.style.setProperty('--matter-zoom',value.toFixed(4));
+  function step(time){
+    frame=0;
+    const dt=last?Math.min(48,time-last):16;last=time;
+    current+=(target-current)*(1-Math.exp(-dt/90));
+    if(Math.abs(target-current)<0.0005)current=target;
+    draw(current);
+    if(current!==target)frame=requestAnimationFrame(step);else last=0;
+  }
+  function update(){
+    target=progress();
+    if(!mobile.matches||reduced.matches){
+      if(frame)cancelAnimationFrame(frame);frame=0;last=0;current=target;draw(current);
+    }else if(!frame&&Math.abs(target-current)>0.0005){
+      frame=requestAnimationFrame(step);
+    }
+  }
+  addEventListener('scroll',update,{passive:true});
+  addEventListener('resize',update,{passive:true});
+  mobile.addEventListener('change',update);
+  reduced.addEventListener('change',update);
+  addEventListener('pagehide',()=>{if(frame)cancelAnimationFrame(frame)});
+  current=target=progress();draw(current);
+})();
