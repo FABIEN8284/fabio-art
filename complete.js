@@ -120,8 +120,34 @@
   contrast(); updateMotion();
 })();
 
-// Contact is intentionally inactive until an approved server endpoint is configured.
-document.querySelector('#contact-form')?.addEventListener('submit', event => event.preventDefault());
+// Contact: asynchronous Formspree submission, with native POST fallback.
+(()=>{
+  const form=document.querySelector('#contact-form');
+  if(!form)return;
+  const status=document.querySelector('#contact-status');
+  const button=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',async event=>{
+    if(!window.fetch||!window.FormData)return; // Keep native HTML submission as fallback.
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    button.disabled=true;
+    status.textContent='Envoi de votre message en cours…';
+    try{
+      const response=await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+      if(!response.ok)throw new Error('Formspree rejected submission');
+      form.reset();
+      status.textContent='Merci, votre message a bien été envoyé. Je vous répondrai dès que possible.';
+    }catch(error){
+      status.textContent='Le message n’a pas pu être envoyé. Vérifiez votre connexion et réessayez.';
+    }finally{
+      button.disabled=false;
+    }
+  });
+})();
 
 /* V2.1: validated editorial titles on navigation and detail pages. */
 (()=>{const works=window.FABIO_WORKS||[];for(const w of works){const id=String(w.asset).padStart(2,'0');document.querySelectorAll('nav a[href="vue-'+id+'.html"]').forEach(a=>a.textContent=w.title);if(location.pathname.endsWith('/vue-'+id+'.html')){const h=document.querySelector('.detail-grid h1'),p=document.querySelector('.detail-grid .lede');if(h)h.textContent=w.title;if(p)p.textContent=w.description;document.title=w.title+' — FABIO ART';}}})();
@@ -161,5 +187,38 @@ document.querySelector('#contact-form')?.addEventListener('submit', event => eve
 /* Peter Parker — progression du reveal liee au scroll, reversible. */
 (()=>{const section=document.querySelector('.fabio-parker-demo');if(!section)return;const reduce=matchMedia('(prefers-reduced-motion: reduce)');let queued=false;function paint(){queued=false;const rect=section.getBoundingClientRect();const travel=Math.max(1,section.offsetHeight-(innerHeight-88));const progress=reduce.matches?1:Math.max(0,Math.min(1,-rect.top/travel));section.style.setProperty('--parker-progress',progress.toFixed(4))}function schedule(){if(!queued){queued=true;requestAnimationFrame(paint)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',schedule);paint()})();
 
-/* TEST : zoom de la matiere synchronise au defilement */
-(()=>{const el=document.querySelector('.fabio-expand-demo');if(!el)return;const reduced=matchMedia('(prefers-reduced-motion:reduce)');let busy=false;function render(){busy=false;const rect=el.getBoundingClientRect(),travel=Math.max(1,el.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/travel));el.style.setProperty('--matter-zoom',reduced.matches?'0':p.toFixed(4))}function schedule(){if(!busy){busy=true;requestAnimationFrame(render)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});render()})();
+/* TEST : zoom mobile lissé; comportement ordinateur conservé. */
+(()=>{
+  const el=document.querySelector('.fabio-expand-demo');if(!el)return;
+  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+  const mobile=matchMedia('(max-width:750px)');
+  let frame=0,target=0,current=0,last=0;
+  const progress=()=>{
+    const rect=el.getBoundingClientRect();
+    const travel=Math.max(1,el.offsetHeight-innerHeight);
+    return reduced.matches?0:Math.max(0,Math.min(1,-rect.top/travel));
+  };
+  const draw=value=>el.style.setProperty('--matter-zoom',value.toFixed(4));
+  function step(time){
+    frame=0;
+    const dt=last?Math.min(48,time-last):16;last=time;
+    current+=(target-current)*(1-Math.exp(-dt/90));
+    if(Math.abs(target-current)<0.0005)current=target;
+    draw(current);
+    if(current!==target)frame=requestAnimationFrame(step);else last=0;
+  }
+  function update(){
+    target=progress();
+    if(!mobile.matches||reduced.matches){
+      if(frame)cancelAnimationFrame(frame);frame=0;last=0;current=target;draw(current);
+    }else if(!frame&&Math.abs(target-current)>0.0005){
+      frame=requestAnimationFrame(step);
+    }
+  }
+  addEventListener('scroll',update,{passive:true});
+  addEventListener('resize',update,{passive:true});
+  mobile.addEventListener('change',update);
+  reduced.addEventListener('change',update);
+  addEventListener('pagehide',()=>{if(frame)cancelAnimationFrame(frame)});
+  current=target=progress();draw(current);
+})();
