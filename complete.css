@@ -1216,3 +1216,350 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 #contact .fabio-animated-title{
   max-width:100%;
 }
+
+/* FABIO TEST — double lecture Clark Kent / Superman : deux lignes distinctes */
+.release-v12 .fabio-parker-sticky{
+  padding-top:clamp(10px,1.6vh,17px)!important;
+}
+.release-v12 .fabio-parker-copy h2{
+  margin:7px 0 8px!important;
+}
+.release-v12 .fabio-parker-copy .fabio-parker-subtitle{
+  display:block!important;
+  width:auto!important;
+  max-width:100%!important;
+  margin:0 0 12px!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#f4eee4!important;
+  font:400 clamp(14px,1.25vw,18px)/1.45 Arial,sans-serif!important;
+  text-shadow:0 2px 10px #000!important;
+}
+.release-v12 .fabio-parker-copy .fabio-identity{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+  position:relative;
+  margin:0;
+  padding:0;
+  width:100%;
+  pointer-events:none;
+}
+.release-v12 .fabio-parker-copy .fabio-identity > span{
+  display:block;
+  position:static;
+  flex:none;
+  width:max-content;
+  max-width:100%;
+  font:400 clamp(2.2rem,3.8vw,4.2rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;
+  white-space:normal;
+  color:#f9f5ed;
+  text-shadow:0 2px 18px rgba(0,0,0,.65);
+}
+.release-v12 .fabio-parker-copy .fabio-identity--kent{
+  opacity:var(--identity-kent-opacity,1);
+  transform:translateY(calc((1 - var(--identity-kent-opacity,1))*-8px));
+}
+.release-v12 .fabio-parker-copy .fabio-identity--superman{
+  opacity:var(--identity-superman-opacity,0);
+  transform:translateY(calc((1 - var(--identity-superman-opacity,0))*10px));
+  color:#e9dbc9;
+}
+@media(max-width:750px){
+  .release-v12 .fabio-parker-copy .fabio-parker-subtitle{
+    max-width:94%!important;
+    font-size:13px!important;
+    line-height:1.38!important;
+    margin:0 0 10px!important;
+  }
+  .release-v12 .fabio-parker-copy .fabio-identity > span{
+    font-size:clamp(1.85rem,7vw,2.75rem);
+    line-height:1.03;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .release-v12 .fabio-identity--kent{opacity:0!important;transform:none!important}
+  .release-v12 .fabio-identity--superman{opacity:1!important;transform:none!important}
+}
+.complete.quiet .fabio-identity--kent{opacity:0!important;transform:none!important}
+.complete.quiet .fabio-identity--superman{opacity:1!important;transform:none!important}
+
+/* FABIO TEST — chapitres 4 et 7 : même grille de lecture que Couleur et présence. */
+#chapitre-4.fabio-explore--standard,
+#chapitre-7.fabio-explore--standard{
+  position:relative!important;
+  display:block!important;
+  container-type:inline-size!important;
+  aspect-ratio:1230/582!important;
+  min-height:0!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  overflow:hidden!important;
+  background:linear-gradient(90deg,#bcbbba 0 34%,#a9a7a7 41%,#8e8b88 75%,#706e6c 100%)!important;
+  color:#161616!important;
+}
+#chapitre-4.fabio-explore--standard::before,
+#chapitre-7.fabio-explore--standard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,0) 58%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 36%,#000 72%);
+  mask-image:linear-gradient(90deg,transparent 36%,#000 72%);
+}
+#chapitre-4 .fabio-explore__text,
+#chapitre-7 .fabio-explore__text{
+  position:absolute!important;
+  left:2.9%!important;
+  top:15.8%!important;
+  width:40%!important;
+  max-width:none!important;
+  z-index:2!important;
+  color:#161616!important;
+  transform:none!important;
+}
+#chapitre-4 .fabio-explore__eyebrow,
+#chapitre-7 .fabio-explore__eyebrow{
+  margin:0 0 2.4cqw .4cqw!important;
+  font:700 .9cqw/1.1 Helvetica,Arial,sans-serif!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#161616!important;
+}
+#chapitre-4 .fabio-explore__text h2,
+#chapitre-7 .fabio-explore__text h2{
+  margin:0 0 3cqw .4cqw!important;
+  font:400 5.5cqw/1 "Times New Roman",Times,serif!important;
+  letter-spacing:-.025em!important;
+  max-width:none!important;
+  color:#161616!important;
+}
+#chapitre-4 .fabio-explore__lead,
+#chapitre-7 .fabio-explore__lead{
+  margin:0!important;
+  max-width:none!important;
+  font:400 clamp(15px,1.22cqw,20px)/1.73 Helvetica,Arial,sans-serif!important;
+  color:#1d1d1d!important;
+}
+#chapitre-4 .fabio-explore__art,
+#chapitre-7 .fabio-explore__art{
+  position:absolute!important;
+  left:45.2%!important;
+  top:9.5%!important;
+  width:51.6%!important;
+  height:81%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  filter:drop-shadow(0 1.8cqw 1.6cqw rgba(0,0,0,.42))!important;
+  overflow:visible!important;
+  transform:none!important;
+}
+#chapitre-4 .fabio-explore__art a,
+#chapitre-7 .fabio-explore__art a{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:visible!important;
+}
+#chapitre-4 .fabio-explore__art picture,
+#chapitre-7 .fabio-explore__art picture{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+#chapitre-4 .fabio-explore__art img,
+#chapitre-7 .fabio-explore__art img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  clip-path:none!important;
+  filter:none!important;
+  transform:none!important;
+}
+/* Photo finale : cadrage latéral resserré selon le repère rouge, original intact. */
+#chapitre-7 .fabio-explore__art picture{
+  width:auto!important;
+  max-width:100%!important;
+  aspect-ratio:5/8!important;
+}
+#chapitre-7 .fabio-explore__art img{
+  object-fit:cover!important;
+  object-position:center!important;
+}
+@media(max-width:760px){
+  #chapitre-4.fabio-explore--standard,
+  #chapitre-7.fabio-explore--standard{
+    aspect-ratio:auto!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:22px!important;
+    min-height:0!important;
+    padding:32px 20px 28px!important;
+    background:linear-gradient(180deg,#bcbbba 0 45%,#7d7a78 100%)!important;
+  }
+  #chapitre-4 .fabio-explore__text,
+  #chapitre-7 .fabio-explore__text{
+    position:static!important;
+    width:auto!important;
+    max-width:none!important;
+    transform:none!important;
+    order:0!important;
+  }
+  #chapitre-4 .fabio-explore__eyebrow,
+  #chapitre-7 .fabio-explore__eyebrow{
+    font-size:11px!important;
+    margin:0 0 14px!important;
+  }
+  #chapitre-4 .fabio-explore__text h2,
+  #chapitre-7 .fabio-explore__text h2{
+    font-size:clamp(36px,10vw,48px)!important;
+    margin:0 0 18px!important;
+    line-height:1.08!important;
+  }
+  #chapitre-4 .fabio-explore__lead,
+  #chapitre-7 .fabio-explore__lead{
+    font-size:16px!important;
+    line-height:1.6!important;
+  }
+  #chapitre-4 .fabio-explore__art,
+  #chapitre-7 .fabio-explore__art{
+    position:static!important;
+    align-self:center!important;
+    order:1!important;
+    width:100%!important;
+    height:auto!important;
+    max-width:460px!important;
+    margin:0 auto!important;
+  }
+  #chapitre-4 .fabio-explore__art a,
+  #chapitre-7 .fabio-explore__art a{
+    height:auto!important;
+  }
+  #chapitre-4 .fabio-explore__art picture{
+    width:100%!important;
+    height:auto!important;
+  }
+  #chapitre-4 .fabio-explore__art img{
+    width:100%!important;
+    height:auto!important;
+  }
+  #chapitre-7 .fabio-explore__art picture{
+    width:min(79%,320px)!important;
+    height:auto!important;
+    aspect-ratio:5/8!important;
+  }
+  #chapitre-7 .fabio-explore__art img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+  }
+}
+
+/* FABIO TEST — noms des œuvres centrés sous leurs photographies */
+.complete.release-v12 main .work .caption{
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  width:100%!important;
+  text-align:center!important;
+}
+.complete.release-v12 main .work .caption > span{
+  text-align:center!important;
+}
+
+/* FABIO TEST — chapitre 4 : photographie à gauche, texte à droite (ordinateur). */
+@media(min-width:761px){
+  #chapitre-4.fabio-explore--standard{
+    /* Fond inversé pour conserver le contraste du texte à droite. */
+    background:linear-gradient(90deg,#706e6c 0%,#8e8b88 28%,#a9a7a7 65%,#bcbbba 100%)!important;
+  }
+  #chapitre-4.fabio-explore--standard::before{
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 64%);
+    mask-image:linear-gradient(90deg,#000 0%,transparent 64%);
+  }
+  #chapitre-4 .fabio-explore__art{
+    left:2.9%!important;
+    top:9.5%!important;
+    width:51.6%!important;
+  }
+  #chapitre-4 .fabio-explore__text{
+    left:55%!important;
+    top:15.8%!important;
+    width:42%!important;
+  }
+}
+
+/* FABIO TEST — Clark Kent / Superman : grands titres animes et aeres */
+/* Les noms restent sur deux lignes distinctes et suivent le défilement existant. */
+.release-v12 .fabio-parker-copy .fabio-parker-subtitle{
+  margin:0 0 22px!important;
+  font:400 clamp(15px,1.25vw,19px)/1.45 Arial,sans-serif!important;
+}
+.release-v12 .fabio-parker-copy .fabio-identity{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+  margin:18px 0 0!important;
+  padding:8px 0 0!important;
+}
+.release-v12 .fabio-parker-copy .fabio-identity > span{
+  display:block;
+  font:400 clamp(3rem,5.2vw,5.6rem)/.98 Georgia,serif;
+  letter-spacing:-.04em;
+  color:#f8f3ea;
+  text-shadow:0 3px 20px rgba(0,0,0,.45);
+  transition:opacity .45s ease,transform .45s ease,filter .45s ease;
+}
+.release-v12 .fabio-parker-copy .fabio-identity--kent{
+  opacity:var(--identity-kent-opacity,1);
+  transform:translateY(calc(-18px + 18px * var(--identity-kent-opacity,1)));
+  filter:blur(calc(4px - 4px * var(--identity-kent-opacity,1)));
+}
+.release-v12 .fabio-parker-copy .fabio-identity--superman{
+  opacity:var(--identity-superman-opacity,0);
+  transform:translateY(calc(22px - 22px * var(--identity-superman-opacity,0)));
+  filter:blur(calc(4px - 4px * var(--identity-superman-opacity,0)));
+  color:#eadfce;
+}
+@media(max-width:750px){
+  .release-v12 .fabio-parker-copy .fabio-identity{
+    margin-top:14px!important;
+    gap:4px;
+    padding-top:6px!important;
+  }
+  .release-v12 .fabio-parker-copy .fabio-identity > span{
+    font-size:clamp(2.3rem,8vw,3.7rem);
+    line-height:.98;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .release-v12 .fabio-parker-copy .fabio-identity > span{
+    transition:none!important;
+    transform:none!important;
+    filter:none!important;
+  }
+}
+.complete.quiet .fabio-parker-copy .fabio-identity > span{
+  transition:none!important;
+  transform:none!important;
+  filter:none!important;
+}
