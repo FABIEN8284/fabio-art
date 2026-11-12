@@ -1026,59 +1026,123 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   }
 }
 
-/* FABIO 062 — présentation artiste, titres à apparition par lignes, portrait intact. */
+/* FABIO 062 — portrait et présentation réunis côte à côte ; photos sources conservées. */
 #portrait .artist-profile-background{
-  filter:blur(22px) brightness(.36);
+  /* Flou réduit de 22 px à 13 px ; aucune modification du fichier image. */
+  filter:blur(13px) brightness(.36);
+}
+@media(min-width:851px){
+  #portrait.artist-profile{
+    grid-template-columns:minmax(0,1.17fr) minmax(0,.83fr);
+    grid-template-rows:auto auto;
+    column-gap:clamp(24px,3.4vw,56px);
+    row-gap:12px;
+    align-items:start;
+    align-content:center;
+  }
+  #portrait .artist-profile-heading{
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    align-self:end;
+  }
+  #portrait .artist-profile-photo{
+    grid-column:2;
+    grid-row:1 / 3;
+    width:100%;
+    align-self:center;
+    justify-self:end;
+  }
+  #portrait .artist-profile-bio{
+    grid-column:1;
+    grid-row:2;
+    margin:0;
+    align-self:start;
+  }
+}
+#portrait .artist-profile-heading h2{
+  font-size:clamp(30px,3.7vw,55px);
+  line-height:1.07;
+  max-width:100%;
 }
 #portrait .artist-profile-bio{
   position:relative;
   z-index:2;
-  grid-column:1 / -1;
   width:100%;
-  max-width:780px;
-  margin:clamp(30px,5vw,70px) auto 0;
-  padding:clamp(25px,3vw,42px) 0 0;
-  border-top:1px solid rgba(255,255,255,.28);
+  max-width:100%;
+  padding:0;
+  border:0;
   color:#f6f1e9;
 }
 #portrait .artist-profile-bio p{
   max-width:none;
-  margin:0 0 20px;
-  font-size:clamp(16px,1.35vw,19px);
-  line-height:1.7;
+  margin:0 0 12px;
+  font-size:clamp(12.5px,1vw,14px);
+  line-height:1.54;
   text-wrap:pretty;
 }
 #portrait .artist-profile-bio .artist-profile-bio__name{
-  margin:0 0 15px;
-  font:600 clamp(13px,1.2vw,17px)/1.4 Arial,sans-serif;
-  letter-spacing:.07em;
+  margin:0 0 8px;
+  font:600 12px/1.4 Arial,sans-serif;
+  letter-spacing:.06em;
 }
 #portrait .artist-profile-bio .artist-profile-bio__tagline{
-  margin:0 0 28px;
-  font:italic 400 clamp(28px,3.3vw,44px)/1.2 Georgia,serif;
+  margin:0 0 18px;
+  font:italic 400 clamp(22px,2.35vw,31px)/1.2 Georgia,serif;
 }
 #portrait .artist-profile-bio .artist-profile-bio__conclusion{
-  margin:28px 0 0;
+  margin:17px 0 0;
   font-weight:600;
 }
-@media(max-width:600px){
+@media(max-width:850px){
+  #portrait.artist-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:21px;
+    min-height:0;
+    padding:clamp(54px,8vw,80px) 6vw;
+  }
+  #portrait .artist-profile-heading{
+    order:0;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    align-self:stretch;
+  }
+  #portrait .artist-profile-heading h2{
+    font-size:clamp(31px,7vw,49px);
+    line-height:1.09;
+  }
   #portrait .artist-profile-bio{
-    grid-column:1;
-    order:2;
-    margin:26px 0 0;
-    padding-top:28px;
+    order:1;
+    margin:0;
+    padding:0;
   }
   #portrait .artist-profile-bio p{
-    font-size:16px;
-    line-height:1.72;
-    margin-bottom:18px;
+    font-size:14px;
+    line-height:1.62;
+    margin-bottom:13px;
   }
-  #portrait .artist-profile-bio .artist-profile-bio__name{font-size:13px}
+  #portrait .artist-profile-bio .artist-profile-bio__name{
+    font-size:12px;
+  }
   #portrait .artist-profile-bio .artist-profile-bio__tagline{
-    font-size:clamp(26px,7vw,34px);
-    margin-bottom:25px;
+    font-size:clamp(24px,6vw,32px);
+    margin-bottom:20px;
+  }
+  #portrait .artist-profile-photo{
+    order:2;
+    width:min(92%,460px);
+    max-width:100%;
+    align-self:center;
+    justify-self:auto;
+    margin:10px auto 0;
   }
 }
+
 /* Même effet que PASSION IV : apparition unique de chaque ligne. */
 .fabio-animated-title{overflow:visible}
 .fabio-animated-title > .fabio-title-line{display:block}
