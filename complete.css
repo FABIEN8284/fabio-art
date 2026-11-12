@@ -1484,3 +1484,25 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 .complete.release-v12 main .work .caption > span{
   text-align:center!important;
 }
+
+/* FABIO TEST — chapitre 4 : photographie à gauche, texte à droite (ordinateur). */
+@media(min-width:761px){
+  #chapitre-4.fabio-explore--standard{
+    /* Fond inversé pour conserver le contraste du texte à droite. */
+    background:linear-gradient(90deg,#706e6c 0%,#8e8b88 28%,#a9a7a7 65%,#bcbbba 100%)!important;
+  }
+  #chapitre-4.fabio-explore--standard::before{
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 64%);
+    mask-image:linear-gradient(90deg,#000 0%,transparent 64%);
+  }
+  #chapitre-4 .fabio-explore__art{
+    left:2.9%!important;
+    top:9.5%!important;
+    width:51.6%!important;
+  }
+  #chapitre-4 .fabio-explore__text{
+    left:55%!important;
+    top:15.8%!important;
+    width:42%!important;
+  }
+}
