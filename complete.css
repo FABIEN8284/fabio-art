@@ -1472,3 +1472,15 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     object-fit:cover!important;
   }
 }
+
+/* FABIO TEST — noms des œuvres centrés sous leurs photographies */
+.complete.release-v12 main .work .caption{
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  width:100%!important;
+  text-align:center!important;
+}
+.complete.release-v12 main .work .caption > span{
+  text-align:center!important;
+}
