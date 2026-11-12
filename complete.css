@@ -1025,3 +1025,194 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     animation:none!important;
   }
 }
+
+/* FABIO 062 — portrait et présentation réunis côte à côte ; photos sources conservées. */
+#portrait .artist-profile-background{
+  /* Flou réduit de 22 px à 13 px ; aucune modification du fichier image. */
+  filter:blur(13px) brightness(.36);
+}
+@media(min-width:851px){
+  #portrait.artist-profile{
+    grid-template-columns:minmax(0,1.17fr) minmax(0,.83fr);
+    grid-template-rows:auto auto;
+    column-gap:clamp(24px,3.4vw,56px);
+    row-gap:12px;
+    align-items:start;
+    align-content:center;
+  }
+  #portrait .artist-profile-heading{
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    align-self:end;
+  }
+  #portrait .artist-profile-photo{
+    grid-column:2;
+    grid-row:1 / 3;
+    width:100%;
+    align-self:center;
+    justify-self:end;
+  }
+  #portrait .artist-profile-bio{
+    grid-column:1;
+    grid-row:2;
+    margin:0;
+    align-self:start;
+  }
+}
+#portrait .artist-profile-heading h2{
+  font-size:clamp(30px,3.7vw,55px);
+  line-height:1.07;
+  max-width:100%;
+}
+#portrait .artist-profile-bio{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:100%;
+  padding:0;
+  border:0;
+  color:#f6f1e9;
+}
+#portrait .artist-profile-bio p{
+  max-width:none;
+  margin:0 0 12px;
+  font-size:clamp(12.5px,1vw,14px);
+  line-height:1.54;
+  text-wrap:pretty;
+}
+#portrait .artist-profile-bio .artist-profile-bio__name{
+  margin:0 0 8px;
+  font:600 12px/1.4 Arial,sans-serif;
+  letter-spacing:.06em;
+}
+#portrait .artist-profile-bio .artist-profile-bio__tagline{
+  margin:0 0 18px;
+  font:italic 400 clamp(22px,2.35vw,31px)/1.2 Georgia,serif;
+}
+#portrait .artist-profile-bio .artist-profile-bio__signature{
+  margin:19px 0 0;
+  font:italic 400 clamp(15px,1.2vw,18px)/1.5 Georgia,serif;
+  letter-spacing:.01em;
+}
+@media(max-width:850px){
+  #portrait.artist-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:21px;
+    min-height:0;
+    padding:clamp(54px,8vw,80px) 6vw;
+  }
+  #portrait .artist-profile-heading{
+    order:0;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    align-self:stretch;
+  }
+  #portrait .artist-profile-heading h2{
+    font-size:clamp(31px,7vw,49px);
+    line-height:1.09;
+  }
+  #portrait .artist-profile-bio{
+    order:1;
+    margin:0;
+    padding:0;
+  }
+  #portrait .artist-profile-bio p{
+    font-size:14px;
+    line-height:1.62;
+    margin-bottom:13px;
+  }
+  #portrait .artist-profile-bio .artist-profile-bio__name{
+    font-size:12px;
+  }
+  #portrait .artist-profile-bio .artist-profile-bio__tagline{
+    font-size:clamp(24px,6vw,32px);
+    margin-bottom:20px;
+  }
+  #portrait .artist-profile-photo{
+    order:2;
+    width:min(92%,460px);
+    max-width:100%;
+    align-self:center;
+    justify-self:auto;
+    margin:10px auto 0;
+  }
+}
+
+/* Même effet que PASSION IV : apparition unique de chaque ligne. */
+.fabio-animated-title{overflow:visible}
+.fabio-animated-title > .fabio-title-line{display:block}
+.fabio-animated-title.fabio-title-pending > .fabio-title-line{
+  opacity:0;
+  transform:translateY(42px);
+  filter:blur(7px);
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line{
+  animation:fabio-title-line-in .95s cubic-bezier(.16,.72,.2,1) both;
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line:first-child{
+  animation-delay:.04s;
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line:nth-child(2){
+  animation-delay:.30s;
+}
+@keyframes fabio-title-line-in{
+  0%{opacity:0;transform:translateY(42px);filter:blur(7px)}
+  55%{opacity:1}
+  100%{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .fabio-animated-title > .fabio-title-line{
+    opacity:1!important;
+    transform:none!important;
+    filter:none!important;
+    animation:none!important;
+  }
+}
+.complete.quiet .fabio-animated-title > .fabio-title-line{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+
+/* TEST — derniers ajustements : titre Parker, legendes triptyque, contact */
+/* Le titre Parker reste dans sa zone de lecture et ne recouvre plus les visuels à droite. */
+@media(min-width:751px){
+  .release-v12 .fabio-parker-copy{
+    max-width:min(39vw,530px)!important;
+  }
+  .release-v12 .fabio-parker-copy h2{
+    font-size:clamp(2.4rem,4.8vw,5.2rem)!important;
+    line-height:1.02!important;
+  }
+}
+@media(max-width:750px){
+  .release-v12 .fabio-parker-copy{
+    max-width:92%!important;
+  }
+  .release-v12 .fabio-parker-copy h2{
+    font-size:clamp(2rem,7.8vw,3.5rem)!important;
+    line-height:1.06!important;
+  }
+}
+/* Chaque nom reste centré sous sa propre photographie, bordure inchangée. */
+#triptyque .triptych-grid .caption{
+  display:flex;
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+#triptyque .triptych-grid .caption > span{
+  text-align:center;
+}
+/* Le titre Contact reprend le même effet ponctuel que les autres titres de FABIO ART. */
+#contact .fabio-animated-title{
+  max-width:100%;
+}

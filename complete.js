@@ -10,7 +10,7 @@
   const motionButton = document.querySelector('#motion');
   const still = () => reduce.matches || body.classList.contains('quiet');
   const pictures = all('.work picture,.hero-art-link,.essay-chapter>a,.hero-satellites a,.artist-main-photo');
-  const titles = all('.narrative-title');
+  const titles = all('.narrative-title:not(.fabio-animated-title)');
   const targets = [...pictures, ...titles];
   const seen = new WeakSet(), active = new Set(), animations = new Set();
   let frame = 0;
@@ -221,4 +221,22 @@
   reduced.addEventListener('change',update);
   addEventListener('pagehide',()=>{if(frame)cancelAnimationFrame(frame)});
   current=target=progress();draw(current);
+})();
+
+/* FABIO 062 — animation de titres reprise de PASSION IV (à l'entrée dans l'écran). */
+(() => {
+  const titles = [...document.querySelectorAll('.fabio-animated-title')];
+  if (!titles.length) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const quiet = document.body.classList.contains('quiet');
+  if (reduced || quiet || !('IntersectionObserver' in window)) return;
+  titles.forEach(title => title.classList.add('fabio-title-pending'));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('title-visible');
+      observer.unobserve(entry.target);
+    });
+  }, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
+  titles.forEach(title => observer.observe(title));
 })();
