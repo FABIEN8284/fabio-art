@@ -1218,9 +1218,10 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
 }
 
 /* FABIO TEST — double lecture Clark Kent / Superman au defilement */
-/* Texte synchronise sur --parker-progress, deja pilote par les deux photos. */
+/* Le zoom des photos conserve --parker-progress ; les noms utilisent un fondu
+   normalise dans le même gestionnaire de défilement, sans calcul CSS coûteux. */
 .release-v12 .fabio-parker-copy .fabio-identity{
-  --identity-switch:clamp(0, calc((var(--parker-progress,0) - .36) * 4.5), 1);
+  --identity-switch:var(--identity-fade,0);
   display:grid;
   grid-template-areas:"identity";
   position:relative;
@@ -1240,27 +1241,16 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   white-space:nowrap;
   color:#f9f5ed;
   text-shadow:0 2px 18px rgba(0,0,0,.65);
-  will-change:opacity,transform;
 }
-.release-v12 .fabio-identity--kent{
-  opacity:calc(1 - var(--identity-switch));
-  transform:translate3d(0,calc(var(--identity-switch) * -14px),0);
-}
-.release-v12 .fabio-identity--superman{
-  opacity:var(--identity-switch);
-  transform:translate3d(0,calc((1 - var(--identity-switch)) * 14px),0);
-}
+.release-v12 .fabio-identity--kent{opacity:calc(1 - var(--identity-switch))}
+.release-v12 .fabio-identity--superman{opacity:var(--identity-switch)}
 @media(max-width:750px){
-  .release-v12 .fabio-parker-copy .fabio-identity{
-    margin:12px 0 8px;
-  }
-  .release-v12 .fabio-parker-copy .fabio-identity > span{
-    font-size:clamp(2rem,8.7vw,3.1rem);
-  }
+  .release-v12 .fabio-parker-copy .fabio-identity{margin:12px 0 8px}
+  .release-v12 .fabio-parker-copy .fabio-identity > span{font-size:clamp(2rem,8.7vw,3.1rem)}
 }
 @media(prefers-reduced-motion:reduce){
-  .release-v12 .fabio-identity--kent{opacity:0!important;transform:none!important}
-  .release-v12 .fabio-identity--superman{opacity:1!important;transform:none!important}
+  .release-v12 .fabio-identity--kent{opacity:0!important}
+  .release-v12 .fabio-identity--superman{opacity:1!important}
 }
-.complete.quiet .fabio-identity--kent{opacity:0!important;transform:none!important}
-.complete.quiet .fabio-identity--superman{opacity:1!important;transform:none!important}
+.complete.quiet .fabio-identity--kent{opacity:0!important}
+.complete.quiet .fabio-identity--superman{opacity:1!important}
