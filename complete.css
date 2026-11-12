@@ -1025,3 +1025,93 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
     animation:none!important;
   }
 }
+
+/* FABIO 062 — présentation artiste, titres à apparition par lignes, portrait intact. */
+#portrait .artist-profile-background{
+  filter:blur(22px) brightness(.36);
+}
+#portrait .artist-profile-bio{
+  position:relative;
+  z-index:2;
+  grid-column:1 / -1;
+  width:100%;
+  max-width:780px;
+  margin:clamp(30px,5vw,70px) auto 0;
+  padding:clamp(25px,3vw,42px) 0 0;
+  border-top:1px solid rgba(255,255,255,.28);
+  color:#f6f1e9;
+}
+#portrait .artist-profile-bio p{
+  max-width:none;
+  margin:0 0 20px;
+  font-size:clamp(16px,1.35vw,19px);
+  line-height:1.7;
+  text-wrap:pretty;
+}
+#portrait .artist-profile-bio .artist-profile-bio__name{
+  margin:0 0 15px;
+  font:600 clamp(13px,1.2vw,17px)/1.4 Arial,sans-serif;
+  letter-spacing:.07em;
+}
+#portrait .artist-profile-bio .artist-profile-bio__tagline{
+  margin:0 0 28px;
+  font:italic 400 clamp(28px,3.3vw,44px)/1.2 Georgia,serif;
+}
+#portrait .artist-profile-bio .artist-profile-bio__conclusion{
+  margin:28px 0 0;
+  font-weight:600;
+}
+@media(max-width:600px){
+  #portrait .artist-profile-bio{
+    grid-column:1;
+    order:2;
+    margin:26px 0 0;
+    padding-top:28px;
+  }
+  #portrait .artist-profile-bio p{
+    font-size:16px;
+    line-height:1.72;
+    margin-bottom:18px;
+  }
+  #portrait .artist-profile-bio .artist-profile-bio__name{font-size:13px}
+  #portrait .artist-profile-bio .artist-profile-bio__tagline{
+    font-size:clamp(26px,7vw,34px);
+    margin-bottom:25px;
+  }
+}
+/* Même effet que PASSION IV : apparition unique de chaque ligne. */
+.fabio-animated-title{overflow:visible}
+.fabio-animated-title > .fabio-title-line{display:block}
+.fabio-animated-title.fabio-title-pending > .fabio-title-line{
+  opacity:0;
+  transform:translateY(42px);
+  filter:blur(7px);
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line{
+  animation:fabio-title-line-in .95s cubic-bezier(.16,.72,.2,1) both;
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line:first-child{
+  animation-delay:.04s;
+}
+.fabio-animated-title.fabio-title-pending.title-visible > .fabio-title-line:nth-child(2){
+  animation-delay:.30s;
+}
+@keyframes fabio-title-line-in{
+  0%{opacity:0;transform:translateY(42px);filter:blur(7px)}
+  55%{opacity:1}
+  100%{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .fabio-animated-title > .fabio-title-line{
+    opacity:1!important;
+    transform:none!important;
+    filter:none!important;
+    animation:none!important;
+  }
+}
+.complete.quiet .fabio-animated-title > .fabio-title-line{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  animation:none!important;
+}
