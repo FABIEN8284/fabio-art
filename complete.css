@@ -1179,3 +1179,39 @@ transform:scale(calc(.88 + var(--matter-zoom,0)*1.65))!important;
   filter:none!important;
   animation:none!important;
 }
+
+/* TEST — derniers ajustements : titre Parker, legendes triptyque, contact */
+/* Le titre Parker reste dans sa zone de lecture et ne recouvre plus les visuels à droite. */
+@media(min-width:751px){
+  .release-v12 .fabio-parker-copy{
+    max-width:min(39vw,530px)!important;
+  }
+  .release-v12 .fabio-parker-copy h2{
+    font-size:clamp(2.4rem,4.8vw,5.2rem)!important;
+    line-height:1.02!important;
+  }
+}
+@media(max-width:750px){
+  .release-v12 .fabio-parker-copy{
+    max-width:92%!important;
+  }
+  .release-v12 .fabio-parker-copy h2{
+    font-size:clamp(2rem,7.8vw,3.5rem)!important;
+    line-height:1.06!important;
+  }
+}
+/* Chaque nom reste centré sous sa propre photographie, bordure inchangée. */
+#triptyque .triptych-grid .caption{
+  display:flex;
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+#triptyque .triptych-grid .caption > span{
+  text-align:center;
+}
+/* Le titre Contact reprend le même effet ponctuel que les autres titres de FABIO ART. */
+#contact .fabio-animated-title{
+  max-width:100%;
+}
